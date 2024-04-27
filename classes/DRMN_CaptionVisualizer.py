@@ -7,7 +7,8 @@ from os.path import isfile, join
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 import networkx as nx
-from collections import Counter
+from collections import Counter, defaultdict
+from itertools import combinations
 import pandas as pd
 
 def generate_wordcloud_and_network_graph(file_paths, output_dir, top_n_wordcloud=100, top_n_network=100, top_n_table=10):
@@ -38,25 +39,45 @@ def generate_wordcloud_and_network_graph(file_paths, output_dir, top_n_wordcloud
     print("Word cloud saved as", output_wordcloud_file)
 
     # Network graph generation
+
     G = nx.Graph()
+    tags_cooccurrence = defaultdict(int)
 
-    top_tags = [tag for tag, _ in word_counter.most_common(top_n_network)]
+    for file in file_paths:
+        with open(file, 'r', encoding='utf-8') as f:
+            content = f.read()
+            tags = list(set(content.split(',')))
+            for tag_pair in combinations(tags, 2):
+                if tag_pair[0].strip() and tag_pair[1].strip():
+                    tags_cooccurrence[tag_pair] += 1
 
-    for (tag1, tag2), weight in tag_cooccurrences.items():
-        if tag1 in top_tags and tag2 in top_tags:  
-            G.add_edge(tag1, tag2, weight=weight)
+    top_cooccurrences = sorted(tags_cooccurrence.items(), key=lambda x: x[1], reverse=True)[:top_n_network]
 
-    plt.figure(figsize=(16, 9))
+    for (tag1, tag2), weight in top_cooccurrences:
+        G.add_edge(tag1.strip(), tag2.strip(), weight=weight)
+
+    plt.figure(figsize=(24, 12))
+    gradio_blue = '#0B0F19'
+    plt.gca().set_facecolor(gradio_blue)
+
+    degrees = dict(G.degree)
+    node_size = [v * 100 for v in degrees.values()]
+    node_color = [degrees[n] for n in G.nodes]
+
+    edge_width = [G[u][v]['weight'] / 100 for u, v in G.edges]
     pos = nx.kamada_kawai_layout(G)
+    nx.draw_networkx_nodes(G, pos, node_size=node_size,
+                           node_color=node_color, cmap=plt.cm.plasma, alpha=0.8)
 
-    nx.draw(G, pos, with_labels=True, font_size=10, node_color='skyblue', node_size=2000, edge_color='gray', linewidths=1, font_weight='bold')
-    edge_labels = {(tag1, tag2): weight for (tag1, tag2), weight in tag_cooccurrences.items() if tag1 in top_tags and tag2 in top_tags}
-    nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_color='red')
+    nx.draw_networkx_edges(G, pos, width=edge_width, alpha=0.3, edge_color='w')
+    nx.draw_networkx_labels(G, pos, font_size=12,
+                            font_weight='bold', font_color='white',
+                            font_family='sans-serif')
 
-    plt.margins(0)
+    plt.axis('off')
 
     output_network_graph_file = join(output_dir, 'network_graph.png')
-    plt.savefig(output_network_graph_file, bbox_inches='tight', pad_inches=0)
+    plt.savefig(output_network_graph_file, pad_inches=0, dpi=300, bbox_inches='tight', facecolor=gradio_blue)
     plt.close()
 
     print("Network graph saved as", output_network_graph_file)
@@ -68,13 +89,28 @@ def generate_wordcloud_and_network_graph(file_paths, output_dir, top_n_wordcloud
     tag_freq_table.columns = ['Tag', 'Frequency']
 
     plt.figure(figsize=(12, 6))
-    plt.bar(tag_freq_table['Tag'][:top_n_table], tag_freq_table['Frequency'][:top_n_table], color='skyblue')
+    bars = plt.bar(tag_freq_table['Tag'][:top_n_table], tag_freq_table['Frequency'][:top_n_table], color='skyblue')
+
+    for bar in bars:
+        yval = bar.get_height()
+        plt.text(bar.get_x() + bar.get_width()/2, yval, round(yval, 2), ha='center', va='bottom', color='black')
+
     plt.xlabel('Tag')
     plt.ylabel('Frequency')
     plt.xticks(rotation=45, ha='right')
     plt.tight_layout()
+
     plt.savefig(join(output_dir, 'tag_frequency_table.png'))
     plt.close()
+
+    # plt.figure(figsize=(12, 6))
+    # plt.bar(tag_freq_table['Tag'][:top_n_table], tag_freq_table['Frequency'][:top_n_table], color='skyblue')
+    # plt.xlabel('Tag')
+    # plt.ylabel('Frequency')
+    # plt.xticks(rotation=45, ha='right')
+    # plt.tight_layout()
+    # plt.savefig(join(output_dir, 'tag_frequency_table.png'))
+    # plt.close()
 
     print("Tag frequency table saved as", join(output_dir, 'tag_frequency_table.png'))
 
