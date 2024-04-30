@@ -154,7 +154,7 @@ class DRMN_CaptionVisualizer:
                 "TextFilePathList": ("STRING", {"forceInput": True}),
                 "WordCloudTop": ("INT", {"default": 1, "min": 1, "max": 9999}),
                 "NetworkGraphTop": ("INT", {"default": 1, "min": 1, "max": 9999}),
-                "FrequencyTableTop": ("INT", {"default": 1, "min": 1, "max": 9999})
+                "FrequencyGraphTop": ("INT", {"default": 1, "min": 1, "max": 9999})
             },
         }
 
@@ -166,14 +166,14 @@ class DRMN_CaptionVisualizer:
     OUTPUT_NODE = True
     CATEGORY = "JDCN Dataset Tools"
 
-    def Visualize(self, TextFilePathList, WordCloudTop, NetworkGraphTop, FrequencyTableTop):
+    def Visualize(self, TextFilePathList, WordCloudTop, NetworkGraphTop, FrequencyGraphTop):
 
         try:
 
             directory_path = os.path.dirname(TextFilePathList[0])
             visualize_path = os.path.join(directory_path, "visualize")
             os.makedirs(visualize_path, exist_ok=True)
-            wc, ng, fg = generate_wordcloud_and_network_graph(TextFilePathList, visualize_path, WordCloudTop[0], NetworkGraphTop[0], FrequencyTableTop[0])
+            wc, ng, fg = generate_wordcloud_and_network_graph(TextFilePathList, visualize_path, WordCloudTop[0], NetworkGraphTop[0], FrequencyGraphTop[0])
             return ([wc, ng, fg],)
 
         except Exception as e:
