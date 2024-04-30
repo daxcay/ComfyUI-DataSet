@@ -21,15 +21,18 @@
 from .classes.DRMN_TXTFileSaver import N_CLASS_MAPPINGS as TXTFileSaverMappings, N_DISPLAY_NAME_MAPPINGS as TXTFileSaverNameMappings
 from .classes.DRMN_TagManipulatorByImageNames import N_CLASS_MAPPINGS as TagManipulatorByImageNamesMappings, N_DISPLAY_NAME_MAPPINGS as TagManipulatorByImageNamesNameMappings
 from .classes.DRMN_CaptionVisualizer import N_CLASS_MAPPINGS as CaptionVisualizerMappings, N_DISPLAY_NAME_MAPPINGS as CaptionVisualizerNameMappings
+from .classes.DRMN_SearchAndReplace import N_CLASS_MAPPINGS as SearchAndReplaceMappings, N_DISPLAY_NAME_MAPPINGS as SearchAndReplaceNameMappings
 
 NODE_CLASS_MAPPINGS = {}
 NODE_CLASS_MAPPINGS.update(TXTFileSaverMappings)
 NODE_CLASS_MAPPINGS.update(TagManipulatorByImageNamesMappings)
 NODE_CLASS_MAPPINGS.update(CaptionVisualizerMappings)
+NODE_CLASS_MAPPINGS.update(SearchAndReplaceMappings)
 
 NODE_DISPLAY_NAME_MAPPINGS = {}
 NODE_DISPLAY_NAME_MAPPINGS.update(TXTFileSaverNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(TagManipulatorByImageNamesNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(CaptionVisualizerNameMappings)
+NODE_DISPLAY_NAME_MAPPINGS.update(SearchAndReplaceNameMappings)
 
 WEB_DIRECTORY = "./web"
