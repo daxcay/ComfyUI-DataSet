@@ -73,7 +73,7 @@ If directory does not exists new directory will be created.
      
 ### Output
 
-Text files in directory.
+Text file in directory.
 
 ## 3. DRMN_TagManipulatorByImageNames
 
