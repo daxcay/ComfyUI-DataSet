@@ -209,4 +209,4 @@ ________________________________________________________________________________
 
 # Support for DRMN ❤️
 
-If you like to suppport me you can donate on: https://paypal.me/daxtoncaylor
+If you like to suppport me you can donate me on paypal: https://paypal.me/daxtoncaylor
