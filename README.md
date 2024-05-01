@@ -209,7 +209,4 @@ ________________________________________________________________________________
 
 # Support for JDCN ❤️
 
-If you like to suppport me you can help me by
-
-Donation:
-https://paypal.me/daxtoncaylor
+If you like to suppport me you can donate on: https://paypal.me/daxtoncaylor
