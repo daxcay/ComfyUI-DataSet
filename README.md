@@ -207,6 +207,6 @@ ________________________________________________________________________________
 ◉ https://github.com/rafstahelin
 - Node Request & Testing
 
-# Support for JDCN ❤️
+# Support for DRMN ❤️
 
 If you like to suppport me you can donate on: https://paypal.me/daxtoncaylor
