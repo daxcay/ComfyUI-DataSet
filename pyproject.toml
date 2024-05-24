@@ -1,7 +1,7 @@
 [project]
 name = "comfyui-drmn"
 description = "Data Research And Manipulators Nodes for Model Trainers, Artists, Designers and Animators. Captions, Visualizers, Text Manipulators"
-version = "1.0.2"
+version = "1.0.0"
 license = "LICENSE"
 dependencies = ["matplotlib", "wordcloud", "networkx", "pygraphviz", "pandas"]
 
