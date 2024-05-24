@@ -12,4 +12,4 @@ Repository = "https://github.com/daxcay/ComfyUI-DRMN"
 [tool.comfy]
 PublisherId = "daxcay"
 DisplayName = "ComfyUI-DRMN"
-Icon = ""
+Icon = "images/logo.png"
