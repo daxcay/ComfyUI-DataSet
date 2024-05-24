@@ -174,15 +174,19 @@ Backup of all file is saved in ```sr_backup``` folder where the caption files ar
 __________________________________________________________________________________________________________________________________________
 
 # Installation
+1) Using ```comfy-cli``` (https://github.com/yoland68/comfy-cli)
+  ```
+  comfy node registry-install comfyui-drmn
+  ```
 
-1) Manual Method
+2) Manual Method
 - Go to your Comfyui > Custom Nodes folder
 - Run CMD from folder path box or right click on empty area and click open in terminal.
 - Copy and Paste this command `git clone https://github.com/daxcay/ComfyUI-DRMN.git`
 - Then go inside ComfyUI-DRMN with cmd or open new.
 - and type `pip install -r requirements.txt` to install the requirements.
 
-2) Automatic Method with [Comfy Manager](https://github.com/ltdrdata/ComfyUI-Manager)
+3) Automatic Method with [Comfy Manager](https://github.com/ltdrdata/ComfyUI-Manager)
 - Inside ComfyUI > Click Manager Button on Side.
 - Click `Install Custom Node` and Search for DRMN and Install this node:
 
@@ -190,7 +194,7 @@ ________________________________________________________________________________
 
 - Restart ComfyUI and it should be good to go
 
-3) Recommended Plugin
+4) Recommended Plugin
 
    **ComfyUI-JDCN** (https://github.com/daxcay/ComfyUI-JDCN) 
 
