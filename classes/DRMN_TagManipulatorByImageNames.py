@@ -109,7 +109,7 @@ class DRMN_TagManipulatorByImageNames:
     FUNCTION = "SaveIT"
     OUTPUT_NODE = True
 
-    CATEGORY = "RAFTOOLS"
+    CATEGORY = "DRMN"
 
     def SaveIT(self, ImageNames, TagsDirectory, Captions, Backup):
         try:
