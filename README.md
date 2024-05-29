@@ -212,5 +212,5 @@ ________________________________________________________________________________
 - Node Request & Testing
 
 # Support for DRMN ❤️
-Buy me a coffee: https://buymeacoffee.com/daxtoncaylor
-If you like to suppport me you can donate me on paypal: https://paypal.me/daxtoncaylor
+- Buy me a coffee: https://buymeacoffee.com/daxtoncaylor
+- If you like to suppport me you can donate me on paypal: https://paypal.me/daxtoncaylor
