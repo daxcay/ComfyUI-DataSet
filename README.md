@@ -4,7 +4,7 @@
 
 ComfyUI-DRMN, Data Research And Manipulators Nodes for Model Trainers, Artists, Designers and Animators. Captions, Visualizers, Text Manipulators
 
-You can contact me on my discord server: [https://discord.gg/GZVGqSHT](https://discord.gg/aGQmh62T)
+You can contact me on my discord server: https://discord.gg/Z44Zjpurjp
 
 ![image](https://github.com/daxcay/ComfyUI-DRMN/assets/164315771/b7d4a51d-6f23-43cc-bc40-c8ae469199e2)
 
@@ -205,7 +205,7 @@ ________________________________________________________________________________
 ◉ Daxton Caylor - ComfyUI Node Developer 
 - Discord - daxtoncaylor
 - Email - daxtoncaylor@gmail.com
-- Discord server: https://discord.gg/sf3kVbtJ
+- Discord server: https://discord.gg/Z44Zjpurjp
 - Commission Status:  🟢 **Open** 🟢
 
 ◉ https://github.com/rafstahelin
