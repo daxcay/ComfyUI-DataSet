@@ -50,7 +50,7 @@ class DRMN_TXTFileSaver:
     FUNCTION = "SaveIT"
     OUTPUT_NODE = True
 
-    CATEGORY = "DRMN"
+    CATEGORY = "🔶DRMN🔶"
 
     def SaveIT(self, content, file_name, directory, mode):
         try:

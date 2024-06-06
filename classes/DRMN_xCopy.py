@@ -39,7 +39,7 @@ class DRMN_xCopy:
     FUNCTION = "SaveIT"
     OUTPUT_NODE = True
 
-    CATEGORY = "DRMN"
+    CATEGORY = "🔶DRMN🔶"
 
     def SaveIT(self, source_folder, destination_folder, mode):
         try:

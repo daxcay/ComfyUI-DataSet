@@ -40,7 +40,7 @@ class DRMN_SearchAndReplace:
     RETURN_NAMES = ()
     FUNCTION = "SaR"
     OUTPUT_NODE = True
-    CATEGORY = "DRMN"
+    CATEGORY = "🔶DRMN🔶"
 
     def SaR(self, TextFilePathList, SearchFor, ReplaceWith):
 

@@ -164,7 +164,7 @@ class DRMN_CaptionVisualizer:
     OUTPUT_IS_LIST = (True,)
     FUNCTION = "Visualize"
     OUTPUT_NODE = True
-    CATEGORY = "DRMN"
+    CATEGORY = "🔶DRMN🔶"
 
     def Visualize(self, TextFilePathList, WordCloudTop, NetworkGraphTop, FrequencyGraphTop):
 
