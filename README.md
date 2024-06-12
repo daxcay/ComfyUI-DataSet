@@ -3,7 +3,7 @@
 
 # ComfyUI-DataSet
 
-ComfyUI-DataSet, Data Research And Manipulators Nodes for Model Trainers, Artists, Designers and Animators. Captions, Visualizers, Text Manipulators
+ComfyUI-DataSet, Data Research, Preparation And Manipulators Nodes for Model Trainers, Artists, Designers and Animators. Captions, Visualizers, Text Manipulators
 
 You can contact me on my discord server: https://discord.gg/Z44Zjpurjp
 
