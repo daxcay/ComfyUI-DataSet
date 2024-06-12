@@ -1,4 +1,5 @@
-![BANNER](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/dadc0da1-cd5b-485f-88a7-294888fb8f71)
+
+![COMFY-UI-DataSet](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/7f48a3dd-e4fd-4953-989e-5c86007a1210)
 
 # ComfyUI-DataSet
 
