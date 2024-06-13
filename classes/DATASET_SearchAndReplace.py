@@ -20,7 +20,7 @@ def save_file(file_path, content):
     print(f"File saved successfully at {file_path}")
 
 
-class DRMN_SearchAndReplace:
+class DATASET_SearchAndReplace:
 
     def __init__(self):
         pass
@@ -40,7 +40,7 @@ class DRMN_SearchAndReplace:
     RETURN_NAMES = ()
     FUNCTION = "SaR"
     OUTPUT_NODE = True
-    CATEGORY = "🔶DRMN🔶"
+    CATEGORY = "🔶DATASET🔶"
 
     def SaR(self, TextFilePathList, SearchFor, ReplaceWith):
 
@@ -70,9 +70,9 @@ class DRMN_SearchAndReplace:
 
 
 N_CLASS_MAPPINGS = {
-    "DRMN_SearchAndReplace": DRMN_SearchAndReplace,
+    "DATASET_SearchAndReplace": DATASET_SearchAndReplace,
 }
 
 N_DISPLAY_NAME_MAPPINGS = {
-    "DRMN_SearchAndReplace": "DRMN_SearchAndReplace",
+    "DATASET_SearchAndReplace": "DATASET_SearchAndReplace",
 }

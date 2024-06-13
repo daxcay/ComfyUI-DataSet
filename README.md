@@ -9,7 +9,7 @@ You can contact me on my discord server: https://discord.gg/Z44Zjpurjp
 
 ![image](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/b7d4a51d-6f23-43cc-bc40-c8ae469199e2)
 
-## 1. DRMN_CaptionVisualizer
+## 1. DATASET_CaptionVisualizer
 
 This node helps anyone to visualize captions in 3 different forms: word cloud, networkgraph and frequency graph.
 
@@ -42,7 +42,7 @@ Images are also saved in ```visualize``` folder where the caption files are stor
 ![image](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/3371d531-ad4c-4e72-ae00-43d71e4a87a6)
 
 
-## 2. DRMN_TXTFileSaver
+## 2. DATASET_TXTFileSaver
 
 Saves text file in an innovative way. has mode Merge | Overwrite | SaveNew | MergeAndSaveNew. 
 Useful for caption creators and manipulators. 
@@ -78,7 +78,7 @@ If directory does not exists new directory will be created.
 
 Text file in directory.
 
-## 3. DRMN_TagManipulatorByImageNames
+## 3. DATASET_TagManipulatorByImageNames
 
 There may be a possiblity where you named your caption file with the same name as your image file (without extension 😅). 
 This node is useful then. You can add a concept in all the caption files at once.
@@ -145,7 +145,7 @@ Tags directory will have something like this.
 ![image](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/15d27de2-6b99-4a32-92c4-3796ff4ae4d1)
 
 
-## 3. DRMN_SearchAndReplace
+## 3. DATASET_SearchAndReplace
 
 Helps anyone manipulate caption files to search for a given text in ```SearchFor``` and replace it with the given ```ReplaceWith``` text.
 

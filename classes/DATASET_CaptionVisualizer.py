@@ -142,7 +142,7 @@ def create_empty_image(width=100, height=100, color=(255, 255, 255)):
     return empty_image
 
 
-class DRMN_CaptionVisualizer:
+class DATASET_CaptionVisualizer:
 
     def __init__(self):
         pass
@@ -164,7 +164,7 @@ class DRMN_CaptionVisualizer:
     OUTPUT_IS_LIST = (True,)
     FUNCTION = "Visualize"
     OUTPUT_NODE = True
-    CATEGORY = "🔶DRMN🔶"
+    CATEGORY = "🔶DATASET🔶"
 
     def Visualize(self, TextFilePathList, WordCloudTop, NetworkGraphTop, FrequencyGraphTop):
 
@@ -183,9 +183,9 @@ class DRMN_CaptionVisualizer:
 
 
 N_CLASS_MAPPINGS = {
-    "DRMN_CaptionVisualizer": DRMN_CaptionVisualizer,
+    "DATASET_CaptionVisualizer": DATASET_CaptionVisualizer,
 }
 
 N_DISPLAY_NAME_MAPPINGS = {
-    "DRMN_CaptionVisualizer": "DRMN_CaptionVisualizer",
+    "DATASET_CaptionVisualizer": "DATASET_CaptionVisualizer",
 }

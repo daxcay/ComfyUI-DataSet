@@ -88,7 +88,7 @@ def read_files_from_directory(file_names, directory):
     return file_contents
 
 
-class DRMN_TagManipulatorByImageNames:
+class DATASET_TagManipulatorByImageNames:
 
     def __init__(self):
         pass
@@ -109,7 +109,7 @@ class DRMN_TagManipulatorByImageNames:
     FUNCTION = "SaveIT"
     OUTPUT_NODE = True
 
-    CATEGORY = "🔶DRMN🔶"
+    CATEGORY = "🔶DATASET🔶"
 
     def SaveIT(self, ImageNames, TagsDirectory, Captions, Backup):
         try:
@@ -136,9 +136,9 @@ class DRMN_TagManipulatorByImageNames:
 
 
 N_CLASS_MAPPINGS = {
-    "DRMN_TagManipulatorByImageNames": DRMN_TagManipulatorByImageNames,
+    "DATASET_TagManipulatorByImageNames": DATASET_TagManipulatorByImageNames,
 }
 
 N_DISPLAY_NAME_MAPPINGS = {
-    "DRMN_TagManipulatorByImageNames": "DRMN_TagManipulatorByImageNames",
+    "DATASET_TagManipulatorByImageNames": "DATASET_TagManipulatorByImageNames",
 }

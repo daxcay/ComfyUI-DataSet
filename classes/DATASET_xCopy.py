@@ -19,7 +19,7 @@ def copy_by_destination_files(source, destination):
             if dest_file_match and filename not in dest_files:
                 shutil.copy(source_file, destination)
 
-class DRMN_xCopy:
+class DATASET_xCopy:
 
     def __init__(self):
         pass
@@ -39,7 +39,7 @@ class DRMN_xCopy:
     FUNCTION = "SaveIT"
     OUTPUT_NODE = True
 
-    CATEGORY = "🔶DRMN🔶"
+    CATEGORY = "🔶DATASET🔶"
 
     def SaveIT(self, source_folder, destination_folder, mode):
         try:
@@ -56,9 +56,9 @@ class DRMN_xCopy:
 
 
 N_CLASS_MAPPINGS = {
-    "DRMN_xCopy": DRMN_xCopy,
+    "DATASET_xCopy": DATASET_xCopy,
 }
 
 N_DISPLAY_NAME_MAPPINGS = {
-    "DRMN_xCopy": "DRMN_xCopy",
+    "DATASET_xCopy": "DATASET_xCopy",
 }

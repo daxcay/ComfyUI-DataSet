@@ -29,7 +29,7 @@ def save_file(filename, output_dir, content, mode='SaveNew'):
         file.write(content)
     print(f"File saved successfully at {file_path}")
 
-class DRMN_TXTFileSaver:
+class DATASET_TXTFileSaver:
 
     def __init__(self):
         pass
@@ -50,7 +50,7 @@ class DRMN_TXTFileSaver:
     FUNCTION = "SaveIT"
     OUTPUT_NODE = True
 
-    CATEGORY = "🔶DRMN🔶"
+    CATEGORY = "🔶DATASET🔶"
 
     def SaveIT(self, content, file_name, directory, mode):
         try:
@@ -67,9 +67,9 @@ class DRMN_TXTFileSaver:
 
 
 N_CLASS_MAPPINGS = {
-    "DRMN_TXTFileSaver": DRMN_TXTFileSaver,
+    "DATASET_TXTFileSaver": DATASET_TXTFileSaver,
 }
 
 N_DISPLAY_NAME_MAPPINGS = {
-    "DRMN_TXTFileSaver": "DRMN_TXTFileSaver",
+    "DATASET_TXTFileSaver": "DATASET_TXTFileSaver",
 }
