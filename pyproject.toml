@@ -1,7 +1,7 @@
 [project]
 name = "comfyui-dataset"
 description = "Data Research, Preparation And Manipulators Nodes for Model Trainers, Artists, Designers and Animators. It has Captions, Visualizers, Text Manipulators and so much more."
-version = "1.0.0"
+version = "1.0.1"
 license = "LICENSE"
 dependencies = ["matplotlib", "wordcloud", "networkx", "pygraphviz", "pandas"]
 
