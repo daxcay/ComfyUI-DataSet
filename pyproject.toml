@@ -1,15 +1,15 @@
 [project]
-name = "comfyui-drmn"
-description = "Data Research And Manipulators Nodes for Model Trainers, Artists, Designers and Animators. Captions, Visualizers, Text Manipulators"
-version = "1.0.1"
+name = "comfyui-dataset"
+description = "Data Research, Preparation And Manipulators Nodes for Model Trainers, Artists, Designers and Animators. It has Captions, Visualizers, Text Manipulators and so much more."
+version = "1.0.0"
 license = "LICENSE"
 dependencies = ["matplotlib", "wordcloud", "networkx", "pygraphviz", "pandas"]
 
 [project.urls]
-Repository = "https://github.com/daxcay/ComfyUI-DRMN"
+Repository = "https://github.com/daxcay/ComfyUI-DataSet"
 #  Used by Comfy Registry https://comfyregistry.org
 
 [tool.comfy]
 PublisherId = "daxcay"
-DisplayName = "ComfyUI-DRMN"
-Icon = "images/logo.png"
+DisplayName = "ComfyUI-DataSet"
+Icon = "https://raw.githubusercontent.com/daxcay/ComfyUI-DataSet/master/images/logo.png"
