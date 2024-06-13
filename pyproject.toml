@@ -12,4 +12,4 @@ Repository = "https://github.com/daxcay/ComfyUI-DataSet"
 [tool.comfy]
 PublisherId = "daxcay"
 DisplayName = "ComfyUI-DataSet"
-Icon = "https://raw.githubusercontent.com/daxcay/ComfyUI-DataSet/master/images/logo.jpg"
+Icon = "https://raw.githubusercontent.com/daxcay/ComfyUI-DataSet/master/web/assets/img/logo.jpg"
