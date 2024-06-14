@@ -24,6 +24,7 @@ from .classes.DATASET_CaptionVisualizer import N_CLASS_MAPPINGS as CaptionVisual
 from .classes.DATASET_SearchAndReplace import N_CLASS_MAPPINGS as SearchAndReplaceMappings, N_DISPLAY_NAME_MAPPINGS as SearchAndReplaceNameMappings
 from .classes.DATASET_xCopy import N_CLASS_MAPPINGS as xCopyMappings, N_DISPLAY_NAME_MAPPINGS as xCopyNameMappings
 from .classes.DATASET_OpenAIChat import N_CLASS_MAPPINGS as OpenAIChatMappings, N_DISPLAY_NAME_MAPPINGS as OpenAIChatNameMappings
+from .classes.DATASET_OpenAIChatImage import N_CLASS_MAPPINGS as OpenAIChatImageMappings,  N_DISPLAY_NAME_MAPPINGS as OpenAIChatImageNameMappings
 
 NODE_CLASS_MAPPINGS = {}
 NODE_CLASS_MAPPINGS.update(TXTFileSaverMappings)
@@ -32,7 +33,7 @@ NODE_CLASS_MAPPINGS.update(CaptionVisualizerMappings)
 NODE_CLASS_MAPPINGS.update(SearchAndReplaceMappings)
 NODE_CLASS_MAPPINGS.update(xCopyMappings)
 NODE_CLASS_MAPPINGS.update(OpenAIChatMappings)
-
+NODE_CLASS_MAPPINGS.update(OpenAIChatImageMappings)
 
 NODE_DISPLAY_NAME_MAPPINGS = {}
 NODE_DISPLAY_NAME_MAPPINGS.update(TXTFileSaverNameMappings)
@@ -41,5 +42,6 @@ NODE_DISPLAY_NAME_MAPPINGS.update(CaptionVisualizerNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(SearchAndReplaceNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(xCopyNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(OpenAIChatNameMappings)
+NODE_DISPLAY_NAME_MAPPINGS.update(OpenAIChatImageNameMappings)
 
 WEB_DIRECTORY = "./web"
