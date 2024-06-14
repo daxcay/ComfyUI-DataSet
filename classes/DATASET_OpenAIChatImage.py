@@ -38,7 +38,7 @@ class DATASET_OpenAIChatImage:
     def generate(self, image, image_detail, model, api_url, api_key, prompt, token_length):
         try:
             ai = OpenAI(api_key=api_key, base_url=api_url)
-            base64img = self.image_to_base64(image)
+            base64img = self.to_base64(image)
             if not api_key:
                 return "OpenAI API key is required."
             request = [{"role": "system","content": "You are GPT-4"}]
