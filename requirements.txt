@@ -1,6 +1,5 @@
 matplotlib
 wordcloud
 networkx
-pygraphviz
 pandas
 openai
