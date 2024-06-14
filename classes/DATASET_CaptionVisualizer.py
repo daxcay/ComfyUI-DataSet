@@ -11,6 +11,7 @@ from collections import Counter, defaultdict
 from itertools import combinations
 import pandas as pd
 
+
 def generate_wordcloud_and_network_graph(file_paths, output_dir, top_n_wordcloud=100, top_n_network=100, top_n_table=10):
     word_counter = Counter()
     tag_cooccurrences = Counter()
@@ -26,7 +27,8 @@ def generate_wordcloud_and_network_graph(file_paths, output_dir, top_n_wordcloud
 
     # Word cloud generation
     top_wordcloud_tags = dict(word_counter.most_common(top_n_wordcloud))
-    wordcloud = WordCloud(width=1920, height=1080, background_color='white').generate_from_frequencies(top_wordcloud_tags)
+    wordcloud = WordCloud(width=1920, height=1080,
+                          background_color='white').generate_from_frequencies(top_wordcloud_tags)
 
     plt.figure(figsize=(16, 9))
     plt.imshow(wordcloud, interpolation='bilinear')
@@ -51,7 +53,8 @@ def generate_wordcloud_and_network_graph(file_paths, output_dir, top_n_wordcloud
                 if tag_pair[0].strip() and tag_pair[1].strip():
                     tags_cooccurrence[tag_pair] += 1
 
-    top_cooccurrences = sorted(tags_cooccurrence.items(), key=lambda x: x[1], reverse=True)[:top_n_network]
+    top_cooccurrences = sorted(tags_cooccurrence.items(
+    ), key=lambda x: x[1], reverse=True)[:top_n_network]
 
     for (tag1, tag2), weight in top_cooccurrences:
         G.add_edge(tag1.strip(), tag2.strip(), weight=weight)
@@ -77,23 +80,28 @@ def generate_wordcloud_and_network_graph(file_paths, output_dir, top_n_wordcloud
     plt.axis('off')
 
     output_network_graph_file = join(output_dir, 'network_graph.png')
-    plt.savefig(output_network_graph_file, pad_inches=0, dpi=300, bbox_inches='tight', facecolor=gradio_blue)
+    plt.savefig(output_network_graph_file, pad_inches=0, dpi=300,
+                bbox_inches='tight', facecolor=gradio_blue)
     plt.close()
 
     print("Network graph saved as", output_network_graph_file)
 
     # Tag frequency table
-    tag_freq_table = pd.DataFrame.from_dict(word_counter, orient='index', columns=['Frequency'])
-    tag_freq_table = tag_freq_table.sort_values(by='Frequency', ascending=False)
+    tag_freq_table = pd.DataFrame.from_dict(
+        word_counter, orient='index', columns=['Frequency'])
+    tag_freq_table = tag_freq_table.sort_values(
+        by='Frequency', ascending=False)
     tag_freq_table.reset_index(inplace=True)
     tag_freq_table.columns = ['Tag', 'Frequency']
 
     plt.figure(figsize=(12, 6))
-    bars = plt.bar(tag_freq_table['Tag'][:top_n_table], tag_freq_table['Frequency'][:top_n_table], color='skyblue')
+    bars = plt.bar(tag_freq_table['Tag'][:top_n_table],
+                   tag_freq_table['Frequency'][:top_n_table], color='skyblue')
 
     for bar in bars:
         yval = bar.get_height()
-        plt.text(bar.get_x() + bar.get_width()/2, yval, round(yval, 2), ha='center', va='bottom', color='black')
+        plt.text(bar.get_x() + bar.get_width()/2, yval,
+                 round(yval, 2), ha='center', va='bottom', color='black')
 
     plt.xlabel('Tag')
     plt.ylabel('Frequency')
@@ -112,9 +120,11 @@ def generate_wordcloud_and_network_graph(file_paths, output_dir, top_n_wordcloud
     # plt.savefig(join(output_dir, 'tag_frequency_table.png'))
     # plt.close()
 
-    print("Tag frequency table saved as", join(output_dir, 'tag_frequency_table.png'))
+    print("Tag frequency table saved as", join(
+        output_dir, 'tag_frequency_table.png'))
 
     return output_wordcloud_file, output_network_graph_file, join(output_dir, 'tag_frequency_table.png')
+
 
 def pilToImage(image):
     return torch.from_numpy(np.array(image).astype(np.float32) / 255.0).unsqueeze(0)
@@ -151,7 +161,7 @@ class DATASET_CaptionVisualizer:
     def INPUT_TYPES(s):
         return {
             "required": {
-                "TextFilePathList": ("STRING", {"forceInput": True}),
+                "Captions": ("STRING", {"forceInput": True}),
                 "WordCloudTop": ("INT", {"default": 1, "min": 1, "max": 9999}),
                 "NetworkGraphTop": ("INT", {"default": 1, "min": 1, "max": 9999}),
                 "FrequencyGraphTop": ("INT", {"default": 1, "min": 1, "max": 9999})
@@ -159,9 +169,9 @@ class DATASET_CaptionVisualizer:
         }
 
     INPUT_IS_LIST = True
-    RETURN_TYPES = ("STRING",)
-    RETURN_NAMES = ("Images",)
-    OUTPUT_IS_LIST = (True,)
+    RETURN_TYPES = ("STRING", "IMAGE")
+    RETURN_NAMES = ("GraphsPaths", "GraphsImages")
+    OUTPUT_IS_LIST = (True, True)
     FUNCTION = "Visualize"
     OUTPUT_NODE = True
     CATEGORY = "🔶DATASET🔶"
@@ -173,8 +183,18 @@ class DATASET_CaptionVisualizer:
             directory_path = os.path.dirname(TextFilePathList[0])
             visualize_path = os.path.join(directory_path, "visualize")
             os.makedirs(visualize_path, exist_ok=True)
-            wc, ng, fg = generate_wordcloud_and_network_graph(TextFilePathList, visualize_path, WordCloudTop[0], NetworkGraphTop[0], FrequencyGraphTop[0])
-            return ([wc, ng, fg],)
+            wc, ng, fg = generate_wordcloud_and_network_graph(
+                TextFilePathList, visualize_path, WordCloudTop[0], NetworkGraphTop[0], FrequencyGraphTop[0])
+
+            images = []
+            if os.path.exists(wc):
+                images.append(load_image(wc))
+            if os.path.exists(ng):
+                images.append(load_image(ng))
+            if os.path.exists(fg):
+                images.append(load_image(fg))
+
+            return ([wc, ng, fg], images,)
 
         except Exception as e:
             print(f"Error saving: {e}")
