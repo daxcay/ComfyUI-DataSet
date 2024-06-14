@@ -37,16 +37,19 @@ class DATASET_OpenAIChatImage:
 
     def generate(self, image, image_detail, model, api_url, api_key, prompt, token_length):
         try:
+
             ai = OpenAI(api_key=api_key, base_url=api_url)
             base64img = self.to_base64(image)
             if not api_key:
                 return "OpenAI API key is required."
-            request = [{"role": "system","content": "You are GPT-4"}]
-            request.extend({"role": "user","content": [{"type": "image_url", "image_url": {"url": f"data:image/png;base64,{base64img}", "detail": image_detail}}]})
-            request.extend({"role": "user","content": prompt})
+
+            request = [{"role": "system","content": "You are GPT-4."}]
+            request.append({"role": "user","content": [{"type": "image_url", "image_url": {"url": f"data:image/png;base64,{base64img}", "detail": image_detail}}]})
+            request.append({"role": "user","content": prompt})
             response = ai.chat.completions.create(model=model,messages=request,max_tokens=token_length)
             answer = response.choices[0].message.content
             return (answer,)
+
         except Exception as e:
             return (f"Error: {str(e)}",)
 

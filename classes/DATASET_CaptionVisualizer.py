@@ -176,15 +176,15 @@ class DATASET_CaptionVisualizer:
     OUTPUT_NODE = True
     CATEGORY = "🔶DATASET🔶"
 
-    def Visualize(self, TextFilePathList, WordCloudTop, NetworkGraphTop, FrequencyGraphTop):
+    def Visualize(self, Captions, WordCloudTop, NetworkGraphTop, FrequencyGraphTop):
 
         try:
 
-            directory_path = os.path.dirname(TextFilePathList[0])
+            directory_path = os.path.dirname(Captions[0])
             visualize_path = os.path.join(directory_path, "visualize")
             os.makedirs(visualize_path, exist_ok=True)
             wc, ng, fg = generate_wordcloud_and_network_graph(
-                TextFilePathList, visualize_path, WordCloudTop[0], NetworkGraphTop[0], FrequencyGraphTop[0])
+                Captions, visualize_path, WordCloudTop[0], NetworkGraphTop[0], FrequencyGraphTop[0])
 
             images = []
             if os.path.exists(wc):
