@@ -15,7 +15,7 @@
 @author: Daxton Caylor
 @title: ComfyUI-DataSet
 @nickname: ComfyUI-DataSet
-@description: Data Research And Manipulators Nodes for Model Trainers, Artists, Designers and Animators.
+@description: Data Research, Preparation And Manipulators Nodes for Model Trainers, Artists, Designers and Animators.
 """
 
 from .classes.DATASET_TXTFileSaver import N_CLASS_MAPPINGS as TXTFileSaverMappings, N_DISPLAY_NAME_MAPPINGS as TXTFileSaverNameMappings
@@ -23,6 +23,7 @@ from .classes.DATASET_TagManipulatorByImageNames import N_CLASS_MAPPINGS as TagM
 from .classes.DATASET_CaptionVisualizer import N_CLASS_MAPPINGS as CaptionVisualizerMappings, N_DISPLAY_NAME_MAPPINGS as CaptionVisualizerNameMappings
 from .classes.DATASET_SearchAndReplace import N_CLASS_MAPPINGS as SearchAndReplaceMappings, N_DISPLAY_NAME_MAPPINGS as SearchAndReplaceNameMappings
 from .classes.DATASET_xCopy import N_CLASS_MAPPINGS as xCopyMappings, N_DISPLAY_NAME_MAPPINGS as xCopyNameMappings
+from .classes.DATASET_OpenAIChat import N_CLASS_MAPPINGS as OpenAIChatMappings, N_DISPLAY_NAME_MAPPINGS as OpenAIChatNameMappings
 
 NODE_CLASS_MAPPINGS = {}
 NODE_CLASS_MAPPINGS.update(TXTFileSaverMappings)
@@ -30,6 +31,8 @@ NODE_CLASS_MAPPINGS.update(TagManipulatorByImageNamesMappings)
 NODE_CLASS_MAPPINGS.update(CaptionVisualizerMappings)
 NODE_CLASS_MAPPINGS.update(SearchAndReplaceMappings)
 NODE_CLASS_MAPPINGS.update(xCopyMappings)
+NODE_CLASS_MAPPINGS.update(OpenAIChatMappings)
+
 
 NODE_DISPLAY_NAME_MAPPINGS = {}
 NODE_DISPLAY_NAME_MAPPINGS.update(TXTFileSaverNameMappings)
@@ -37,5 +40,6 @@ NODE_DISPLAY_NAME_MAPPINGS.update(TagManipulatorByImageNamesNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(CaptionVisualizerNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(SearchAndReplaceNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(xCopyNameMappings)
+NODE_DISPLAY_NAME_MAPPINGS.update(OpenAIChatNameMappings)
 
 WEB_DIRECTORY = "./web"

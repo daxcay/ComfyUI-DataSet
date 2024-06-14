@@ -3,3 +3,4 @@ wordcloud
 networkx
 pygraphviz
 pandas
+openai
