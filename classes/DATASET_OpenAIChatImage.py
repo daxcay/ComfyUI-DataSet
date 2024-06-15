@@ -3,6 +3,7 @@ import io
 from PIL import Image
 import numpy as np
 from openai import OpenAI
+import os
 
 class DATASET_OpenAIChatImage:
 
@@ -52,6 +53,10 @@ class DATASET_OpenAIChatImage:
 
         except Exception as e:
             return (f"Error: {str(e)}",)
+    
+    @classmethod
+    def IS_CHANGED(s, image, image_detail, model, api_url, api_key, prompt, token_length):       
+       return os.urandom(16).hex()
 
 N_CLASS_MAPPINGS = {
     "DATASET_OpenAIChatImage": DATASET_OpenAIChatImage,

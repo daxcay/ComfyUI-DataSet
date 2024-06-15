@@ -54,6 +54,9 @@ class DATASET_xCopy:
 
         return ()
 
+    @classmethod
+    def IS_CHANGED(s, source_folder, destination_folder, mode):       
+       return os.urandom(16).hex()
 
 N_CLASS_MAPPINGS = {
     "DATASET_xCopy": DATASET_xCopy,

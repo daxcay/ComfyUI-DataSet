@@ -133,6 +133,10 @@ class DATASET_TagManipulatorByImageNames:
             print(f"Error saving: {e}")
 
         return ()
+    
+    @classmethod
+    def IS_CHANGED(s, ImageNames, TagsDirectory, Captions, Backup):       
+       return os.urandom(16).hex()
 
 
 N_CLASS_MAPPINGS = {

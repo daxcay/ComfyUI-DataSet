@@ -67,6 +67,10 @@ class DATASET_SearchAndReplace:
             print(f"Error saving: {e}")
 
         return ()
+    
+    @classmethod
+    def IS_CHANGED(s, TextFilePathList, SearchFor, ReplaceWith):       
+       return os.urandom(16).hex()
 
 
 N_CLASS_MAPPINGS = {

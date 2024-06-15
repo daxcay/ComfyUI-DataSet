@@ -200,6 +200,10 @@ class DATASET_CaptionVisualizer:
             print(f"Error saving: {e}")
 
         return (["", "", ""],)
+    
+    @classmethod
+    def IS_CHANGED(s, Captions, WordCloudTop, NetworkGraphTop, FrequencyGraphTop):       
+       return os.urandom(16).hex()
 
 
 N_CLASS_MAPPINGS = {
