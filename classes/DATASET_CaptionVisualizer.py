@@ -17,18 +17,20 @@ def generate_wordcloud_and_network_graph(file_paths, output_dir, top_n_wordcloud
     tag_cooccurrences = Counter()
 
     for file_path in file_paths:
-        with open(file_path, 'r') as f:
-            tags = f.read().strip().split(',')
-            word_counter.update(tags)
-            for tag1 in tags:
-                for tag2 in tags:
-                    if tag1 != tag2:
-                        tag_cooccurrences[(tag1, tag2)] += 1
+        try:
+            with open(file_path, 'r', encoding='utf-8') as file:
+                tags = file.read().strip().split(',')
+                word_counter.update(tags)
+                for tag1 in tags:
+                    for tag2 in tags:
+                        if tag1 != tag2:
+                            tag_cooccurrences[(tag1, tag2)] += 1
+        except Exception as e:
+            print(f"Error reading file {file_path}: {e}")
 
     # Word cloud generation
     top_wordcloud_tags = dict(word_counter.most_common(top_n_wordcloud))
-    wordcloud = WordCloud(width=1920, height=1080,
-                          background_color='white').generate_from_frequencies(top_wordcloud_tags)
+    wordcloud = WordCloud(width=1920, height=1080, background_color='white').generate_from_frequencies(top_wordcloud_tags)
 
     plt.figure(figsize=(16, 9))
     plt.imshow(wordcloud, interpolation='bilinear')
@@ -45,13 +47,16 @@ def generate_wordcloud_and_network_graph(file_paths, output_dir, top_n_wordcloud
     G = nx.Graph()
     tags_cooccurrence = defaultdict(int)
 
-    for file in file_paths:
-        with open(file, 'r', encoding='utf-8') as f:
-            content = f.read()
-            tags = list(set(content.split(',')))
-            for tag_pair in combinations(tags, 2):
-                if tag_pair[0].strip() and tag_pair[1].strip():
-                    tags_cooccurrence[tag_pair] += 1
+    for file_path in file_paths:
+        try:
+            with open(file_path, 'r', encoding='utf-8') as file:
+                content = file.read()
+                tags = list(set(content.split(',')))
+                for tag_pair in combinations(tags, 2):
+                    if tag_pair[0].strip() and tag_pair[1].strip():
+                        tags_cooccurrence[tag_pair] += 1
+        except Exception as e:
+            print(f"Error reading file {file_path}: {e}")
 
     top_cooccurrences = sorted(tags_cooccurrence.items(
     ), key=lambda x: x[1], reverse=True)[:top_n_network]
@@ -183,8 +188,7 @@ class DATASET_CaptionVisualizer:
             directory_path = os.path.dirname(Captions[0])
             visualize_path = os.path.join(directory_path, "visualize")
             os.makedirs(visualize_path, exist_ok=True)
-            wc, ng, fg = generate_wordcloud_and_network_graph(
-                Captions, visualize_path, WordCloudTop[0], NetworkGraphTop[0], FrequencyGraphTop[0])
+            wc, ng, fg = generate_wordcloud_and_network_graph(Captions, visualize_path, WordCloudTop[0], NetworkGraphTop[0], FrequencyGraphTop[0])
 
             images = []
             if os.path.exists(wc):
