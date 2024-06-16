@@ -98,7 +98,7 @@ class DATASET_TagManipulatorByImageNames:
         return {
             "required": {
                 "ImageNames": ("STRING", {"forceInput": True}),
-                "TagsDirectory": ("STRING", {"default": "directory path"}),
+                "CaptionDirectory": ("STRING", {"default": "directory path"}),
                 "Backup": ("BOOLEAN", {"default":False}),
                 "Captions": ("STRING", {"multiline": True, "default": "concept"}),
             },
@@ -111,8 +111,10 @@ class DATASET_TagManipulatorByImageNames:
 
     CATEGORY = "🔶DATASET🔶"
 
-    def SaveIT(self, ImageNames, TagsDirectory, Captions, Backup):
+    def SaveIT(self, ImageNames, CaptionDirectory, Captions, Backup):
         try:
+
+            TagsDirectory = CaptionDirectory
 
             backup_file_path = os.path.join(TagsDirectory[0], "backup")
             os.makedirs(backup_file_path, exist_ok=True)
@@ -135,7 +137,7 @@ class DATASET_TagManipulatorByImageNames:
         return ()
     
     @classmethod
-    def IS_CHANGED(s, ImageNames, TagsDirectory, Captions, Backup):       
+    def IS_CHANGED(s, ImageNames, CaptionDirectory, Captions, Backup):       
        return os.urandom(16).hex()
 
 

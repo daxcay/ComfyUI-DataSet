@@ -19,6 +19,7 @@
 """
 
 from .classes.DATASET_TXTFileSaver import N_CLASS_MAPPINGS as TXTFileSaverMappings, N_DISPLAY_NAME_MAPPINGS as TXTFileSaverNameMappings
+from .classes.DATASET_TXTFileLoader import N_CLASS_MAPPINGS as TXTFileLoaderMappings, N_DISPLAY_NAME_MAPPINGS as TXTFileLoaderNameMappings
 from .classes.DATASET_TagManipulatorByImageNames import N_CLASS_MAPPINGS as TagManipulatorByImageNamesMappings, N_DISPLAY_NAME_MAPPINGS as TagManipulatorByImageNamesNameMappings
 from .classes.DATASET_CaptionVisualizer import N_CLASS_MAPPINGS as CaptionVisualizerMappings, N_DISPLAY_NAME_MAPPINGS as CaptionVisualizerNameMappings
 from .classes.DATASET_SearchAndReplace import N_CLASS_MAPPINGS as SearchAndReplaceMappings, N_DISPLAY_NAME_MAPPINGS as SearchAndReplaceNameMappings
@@ -28,6 +29,7 @@ from .classes.DATASET_OpenAIChatImage import N_CLASS_MAPPINGS as OpenAIChatImage
 
 NODE_CLASS_MAPPINGS = {}
 NODE_CLASS_MAPPINGS.update(TXTFileSaverMappings)
+NODE_CLASS_MAPPINGS.update(TXTFileLoaderMappings)
 NODE_CLASS_MAPPINGS.update(TagManipulatorByImageNamesMappings)
 NODE_CLASS_MAPPINGS.update(CaptionVisualizerMappings)
 NODE_CLASS_MAPPINGS.update(SearchAndReplaceMappings)
@@ -37,6 +39,7 @@ NODE_CLASS_MAPPINGS.update(OpenAIChatImageMappings)
 
 NODE_DISPLAY_NAME_MAPPINGS = {}
 NODE_DISPLAY_NAME_MAPPINGS.update(TXTFileSaverNameMappings)
+NODE_DISPLAY_NAME_MAPPINGS.update(TXTFileLoaderNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(TagManipulatorByImageNamesNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(CaptionVisualizerNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(SearchAndReplaceNameMappings)

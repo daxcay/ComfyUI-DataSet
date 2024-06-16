@@ -40,8 +40,8 @@ class DATASET_TXTFileSaver:
             "required": {
                 "content": ("STRING",{"forceInput": True}),
                 "file_name": ("STRING",{"forceInput": True}),
-                "directory": ("STRING", {"default": "directory path"}),
-                "mode": (['Merge','Overwrite','SaveNew','MergeAndSaveNew'],),
+                "save_in": ("STRING", {"default": "directory path"}),
+                "save_mode": (['Merge','Overwrite','SaveNew','MergeAndSaveNew'],),
             },
         }
 
@@ -52,8 +52,11 @@ class DATASET_TXTFileSaver:
 
     CATEGORY = "🔶DATASET🔶"
 
-    def SaveIT(self, content, file_name, directory, mode):
+    def SaveIT(self, content, file_name, save_in, save_mode):
         try:
+
+            directory = save_in
+            mode = save_mode
 
             if not os.path.exists(directory):
                 os.makedirs(directory)

@@ -30,7 +30,7 @@ class DATASET_xCopy:
             "required": {
                 "source_folder": ("STRING", {"default": "directory path"}),
                 "destination_folder": ("STRING", {"default": "directory path"}),
-                "mode": (['BlindCopy','CopyByDestinationFiles'],),
+                "copy_mode": (['BlindCopy','CopyByDestinationFiles'],),
             },
         }
 
@@ -41,8 +41,10 @@ class DATASET_xCopy:
 
     CATEGORY = "🔶DATASET🔶"
 
-    def SaveIT(self, source_folder, destination_folder, mode):
+    def SaveIT(self, source_folder, destination_folder, copy_mode):
         try:
+
+            mode = copy_mode
 
             if mode == 'BlindCopy':
                 blind_copy(source_folder, destination_folder)
