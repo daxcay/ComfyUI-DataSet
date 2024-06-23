@@ -28,6 +28,8 @@ from .classes.DATASET_OpenAIChat import N_CLASS_MAPPINGS as OpenAIChatMappings, 
 from .classes.DATASET_OpenAIChatImage import N_CLASS_MAPPINGS as OpenAIChatImageMappings,  N_DISPLAY_NAME_MAPPINGS as OpenAIChatImageNameMappings
 from .classes.DATASET_LoadImage import N_CLASS_MAPPINGS as LoadImageMappings,  N_DISPLAY_NAME_MAPPINGS as LoadImageNameMappings
 from .classes.DATASET_SaveImage import N_CLASS_MAPPINGS as SaveImageMappings,  N_DISPLAY_NAME_MAPPINGS as SaveImageNameMappings
+from .classes.DATASET_TXTFileSaverBatch import N_CLASS_MAPPINGS as TXTFileSaverBatchMappings, N_DISPLAY_NAME_MAPPINGS as TXTFileSaverBatchNameMappings
+from .classes.DATASET_OpenAIChatImageBatch import N_CLASS_MAPPINGS as OpenAIChatImageBatchMappings,  N_DISPLAY_NAME_MAPPINGS as OpenAIChatImageBatchNameMappings
 
 NODE_CLASS_MAPPINGS = {}
 NODE_CLASS_MAPPINGS.update(TXTFileSaverMappings)
@@ -40,6 +42,8 @@ NODE_CLASS_MAPPINGS.update(OpenAIChatMappings)
 NODE_CLASS_MAPPINGS.update(OpenAIChatImageMappings)
 NODE_CLASS_MAPPINGS.update(LoadImageMappings)
 NODE_CLASS_MAPPINGS.update(SaveImageMappings)
+NODE_CLASS_MAPPINGS.update(TXTFileSaverBatchMappings)
+NODE_CLASS_MAPPINGS.update(OpenAIChatImageBatchMappings)
 
 NODE_DISPLAY_NAME_MAPPINGS = {}
 NODE_DISPLAY_NAME_MAPPINGS.update(TXTFileSaverNameMappings)
@@ -52,5 +56,7 @@ NODE_DISPLAY_NAME_MAPPINGS.update(OpenAIChatNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(OpenAIChatImageNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(LoadImageNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(SaveImageNameMappings)
+NODE_DISPLAY_NAME_MAPPINGS.update(TXTFileSaverNameMappings)
+NODE_DISPLAY_NAME_MAPPINGS.update(OpenAIChatImageBatchNameMappings)
 
 WEB_DIRECTORY = "./web"
