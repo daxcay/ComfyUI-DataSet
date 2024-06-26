@@ -7,6 +7,8 @@ ComfyUI-DataSet is a Data Research, Preparation And Manipulators Node for Model 
 
 You can contact me on my discord server: https://discord.gg/Z44Zjpurjp
 
+# New documentation is coming soon
+
 ![image](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/b7d4a51d-6f23-43cc-bc40-c8ae469199e2)
 
 ## 1. DATASET_CaptionVisualizer
