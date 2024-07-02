@@ -30,6 +30,7 @@ from .classes.DATASET_LoadImage import N_CLASS_MAPPINGS as LoadImageMappings,  N
 from .classes.DATASET_SaveImage import N_CLASS_MAPPINGS as SaveImageMappings,  N_DISPLAY_NAME_MAPPINGS as SaveImageNameMappings
 from .classes.DATASET_TXTFileSaverBatch import N_CLASS_MAPPINGS as TXTFileSaverBatchMappings, N_DISPLAY_NAME_MAPPINGS as TXTFileSaverBatchNameMappings
 from .classes.DATASET_OpenAIChatImageBatch import N_CLASS_MAPPINGS as OpenAIChatImageBatchMappings,  N_DISPLAY_NAME_MAPPINGS as OpenAIChatImageBatchNameMappings
+from .classes.DATASET_TriggerWords import N_CLASS_MAPPINGS as TriggerWordsMappings,  N_DISPLAY_NAME_MAPPINGS as TriggerWordsNameMappings
 
 NODE_CLASS_MAPPINGS = {}
 NODE_CLASS_MAPPINGS.update(TXTFileSaverMappings)
@@ -44,6 +45,7 @@ NODE_CLASS_MAPPINGS.update(LoadImageMappings)
 NODE_CLASS_MAPPINGS.update(SaveImageMappings)
 NODE_CLASS_MAPPINGS.update(TXTFileSaverBatchMappings)
 NODE_CLASS_MAPPINGS.update(OpenAIChatImageBatchMappings)
+NODE_CLASS_MAPPINGS.update(TriggerWordsMappings)
 
 NODE_DISPLAY_NAME_MAPPINGS = {}
 NODE_DISPLAY_NAME_MAPPINGS.update(TXTFileSaverNameMappings)
@@ -56,7 +58,8 @@ NODE_DISPLAY_NAME_MAPPINGS.update(OpenAIChatNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(OpenAIChatImageNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(LoadImageNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(SaveImageNameMappings)
-NODE_DISPLAY_NAME_MAPPINGS.update(TXTFileSaverNameMappings)
+NODE_DISPLAY_NAME_MAPPINGS.update(TXTFileSaverBatchNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(OpenAIChatImageBatchNameMappings)
+NODE_DISPLAY_NAME_MAPPINGS.update(TriggerWordsNameMappings)
 
 WEB_DIRECTORY = "./web"
