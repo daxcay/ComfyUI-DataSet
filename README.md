@@ -42,9 +42,9 @@ Data research, preparation, and manipulation nodes for model trainers and artist
 
 ## DataSet_Visualizer
 
-![Screenshot 2024-07-05 195633](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/3b6ef307-6d86-48e4-b9a0-d59610aeeb82)
+The DataSet_Visualizer node is designed to visualize dataset captions. It generates graphs offering various perspectives on token analysis. The word cloud represents token frequency with different sized fonts. The network graph illustrates the relationships between tokens. The frequency graph provides an exact metric of how often each token appears in your captions.
 
-  The `DataSet_Visualizer` node is designed to visualize datasets by generating a word cloud, a network graph, and a frequency table from tag contents provided in text files.
+![Screenshot 2024-07-05 195633](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/3b6ef307-6d86-48e4-b9a0-d59610aeeb82)
 
   #### Inputs
   - **TextFileContents**: (STRING, required) - The contents of the text file to be processed.
