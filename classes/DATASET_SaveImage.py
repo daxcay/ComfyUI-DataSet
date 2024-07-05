@@ -16,8 +16,8 @@ class DataSet_SaveImage:
         return {
             "required": {
                 "Images": ("IMAGE",),
+                "ImageFileNames": ("STRING", {"default": "Image"}),
                 "destination": ("STRING", {}),
-                "Filename": ("STRING", {"default": "Image"}),
             },
             "hidden": {"prompt": "PROMPT", "extra_pnginfo": "EXTRA_PNGINFO"},
         }
@@ -27,7 +27,7 @@ class DataSet_SaveImage:
     OUTPUT_NODE = True
     CATEGORY = "🔶DATASET🔶"
 
-    def BatchSave(self, Images, destination, Filename, prompt=None, extra_pnginfo=None):
+    def BatchSave(self, Images, ImageFileNames, destination, prompt=None, extra_pnginfo=None):
 
         try:
 

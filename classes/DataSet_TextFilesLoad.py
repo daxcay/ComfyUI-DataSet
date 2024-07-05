@@ -26,7 +26,7 @@ class DataSet_TextFilesLoad:
         }
 
     INPUT_IS_LIST = True
-    RETURN_TYPES = ("STRING","STRING","STRING",)
+    RETURN_TYPES = ("STRING","STRING","STRING","STRING")
     RETURN_NAMES = ("TextFileNames","TextFileNamesWithoutExtension","TextFilePaths","TextFileContents",)
     OUTPUT_IS_LIST = (True, True, True, True,)
     FUNCTION = "LoadIT"
