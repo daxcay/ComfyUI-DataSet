@@ -30,7 +30,7 @@ Data research, preparation, and manipulation nodes for model trainers and artist
     
   - Restart ComfyUI and it should be good to go
 
-#### Recommended Plugin (optional)
+#### Extra Nodes Needed
   - **ComfyUI-JDCN** (https://github.com/daxcay/ComfyUI-JDCN) 
 
 </br>
