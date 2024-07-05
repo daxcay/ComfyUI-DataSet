@@ -1,10 +1,16 @@
 # ComfyUI-DataSet
 
+</br>
+
 Data Research, Preparation, and Manipulation Nodes for Model Trainers, Artists, Designers, and Animators.
+
+</br>
 
 ![COMFY-UI-DATASET](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/1ebeb79a-5d47-4f13-bfe9-d579bc7986a7)
 
 ##### you can drag this to comfy
+
+</br>
 
 ## Installation
 
@@ -33,6 +39,9 @@ Data Research, Preparation, and Manipulation Nodes for Model Trainers, Artists, 
 ### You can find DataSet under this category:
   ![image](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/4930b434-1993-47c4-bd71-d16f762f94a4)
 
+</br>
+</br>
+
 ## DataSet_Visualizer
 
 ![Screenshot 2024-07-05 195633](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/3b6ef307-6d86-48e4-b9a0-d59610aeeb82)
@@ -50,6 +59,8 @@ Data Research, Preparation, and Manipulation Nodes for Model Trainers, Artists, 
   - **GraphsPaths**: (STRING, list) - The file paths of the generated visualizations. It includes paths for: Word cloud image, Network graph image, Frequency table image
   - **GraphsImages**: (IMAGE, list) - The generated images for the visualizations.
 
+
+
 ## DataSet_CopyFiles
 
 ![Screenshot 2024-07-05 195651](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/7176f6b8-8e88-4c64-bb78-cb53afe8e368)
@@ -62,6 +73,9 @@ Data Research, Preparation, and Manipulation Nodes for Model Trainers, Artists, 
   - **copy_mode**: (['BlindCopy', 'CopyByDestinationFiles'], required) - The mode of copying files:
     - 'BlindCopy': Copies all files from the source to the destination folder.
     - 'CopyByDestinationFiles': Copies files from the source folder to the destination only if there is a matching file (based on the base name) already present in the destination.
+
+</br>
+</br>
 
 ## DataSet_TriggerWords
 
@@ -78,6 +92,9 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
   #### Outputs
   - **Words**: (`STRING`, list) - The extracted trigger words or phrases from the text file(s).
 
+</br>
+</br>
+
 ## DataSet_TextFilesLoadFromList
 
 ![Screenshot 2024-07-05 195544](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/fa596e21-e5fd-40ac-a351-e2fa9949fcf9)
@@ -93,6 +110,9 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
   - **TextFilePaths**: (`STRING`, list) - The file paths of the text files.
   - **TextFileContents**: (`STRING`, list) - The contents of the text files.
 
+</br>
+</br>
+
 ## DataSet_TextFilesLoad
 
 ![Screenshot 2024-07-05 195531](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/f16b6575-0be6-4945-8afb-11d54f40649e)
@@ -107,6 +127,9 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
   - **TextFileNamesWithoutExtension**: (`STRING`, list) - The names of the text files without their extensions.
   - **TextFilePaths**: (`STRING`, list) - The file paths of the text files in the directory.
   - **TextFileContents**: (`STRING`, list) - The contents of the text files in the directory.
+
+</br>
+</br>
 
 ## DataSet_TextFilesSave
 
@@ -128,6 +151,9 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
   #### Outputs
   - This class does not produce any output types.
 
+</br>
+</br>
+
 ## DataSet_FindAndReplace
 
 ![Screenshot 2024-07-05 195639](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/12b9c2a7-54ea-4d01-ae2b-53898865ca7f)
@@ -141,6 +167,9 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
   
   #### Outputs
   - **TextFileContents**: (`STRING`, list) - The modified contents of the text file(s) after performing the find and replace operation.
+
+</br>
+</br>
 
 ## DataSet_PathSelector
 
@@ -159,6 +188,9 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
   - **SelectedNamesWithoutExtension**: (`STRING`, list) - The names of the selected files without their extensions.
   - **SelectedPaths**: (`STRING`, list) - The full paths of the selected files.
 
+</br>
+</br>
+
 ## DataSet_ConceptManager
 
 ![Screenshot 2024-07-05 195624](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/de1c1dd8-b688-435c-96cd-3368b4f13162)
@@ -172,6 +204,9 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
   
   #### Outputs
   - **TextFileContents**: (`STRING`, list) - The modified contents of the text file(s) after adding or removing concepts.
+
+</br>
+</br>
 
 ## DataSet_OpenAIChat
 
@@ -189,6 +224,9 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
   #### Outputs
   - **STRING**: The generated response from the OpenAI model based on the provided prompt.
 
+</br>
+</br>
+
 ## DataSet_LoadImage
 
 ![Screenshot 2024-07-05 195550](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/3a1ce311-8c37-430c-9620-0719cf721aba)
@@ -205,6 +243,9 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
   - **STRING**: The name of the image file without extension.
   - **STRING**: The full path of the image file.
   - **STRING**: The directory path of the image file.
+
+</br>
+</br>
 
 ## DataSet_SaveImage
 
@@ -224,6 +265,9 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
   #### Outputs
   - None
 
+</br>
+</br>
+
 ## DataSet_OpenAIChatImage
 
 ![Screenshot 2024-07-05 195607](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/8a9313e4-9f73-4b9c-a483-63491af41f3f)
@@ -241,6 +285,9 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
   
   #### Outputs
   - STRING: Text-based response generated by the AI model.
+
+</br>
+</br>
 
 ## DataSet_OpenAIChatImageBatch
 
@@ -260,17 +307,16 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
   #### Outputs
   - STRING: List of text-based responses generated by the AI model for each input image.
 
-## Credits
+</br>
+</br>
 
-🔶 Daxton Caylor - ComfyUI Node Developer 
+## Credits ❤️
+
+**Daxton Caylor - ComfyUI Node Developer** 
   - **Discord** - daxtoncaylor
   - **Email** - daxtoncaylor@gmail.com
-  - **Discord server**: https://discord.gg/Z44Zjpurjp
-  - **Commission Status**:  🟢 **Open** 🟢
-
-🔶 https://github.com/rafstahelin
-  - **Node Request & Testing**
-
-## Support for DataSet ❤️
+  - **DiscordServer**: https://discord.gg/Z44Zjpurjp
+  - **Twitter**: @daxcay27
+  - **Commission Status**:  🟢 Open 🟢
   - **Buy me a coffee**: https://buymeacoffee.com/daxtoncaylor
   - **If you like to suppport me you can donate me on paypal**: https://paypal.me/daxtoncaylor
