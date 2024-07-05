@@ -300,7 +300,7 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
 
 ## Credits ❤️
 
-## Daxton Caylor - ComfyUI Node Developer 
+### Daxton Caylor - ComfyUI Node Developer 
   
   ### Contact
    - **Twitter**: @daxcay27
