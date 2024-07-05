@@ -29,7 +29,7 @@ def save_file(filename, output_dir, content, mode='SaveNew'):
         file.write(content)
     print(f"File saved successfully at {file_path}")
 
-class DATASET_TXTFileSaver:
+class DataSet_TextFilesSave:
 
     def __init__(self):
         pass
@@ -38,45 +38,43 @@ class DATASET_TXTFileSaver:
     def INPUT_TYPES(s):
         return {
             "required": {
-                "content": ("STRING",{"forceInput": True}),
-                "file_name": ("STRING",{"forceInput": True}),
-                "save_in": ("STRING", {"default": "directory path"}),
+                "TextFileContents": ("STRING",{"forceInput": True}),
+                "TextFileNames": ("STRING",{"forceInput": True}),
+                "destination": ("STRING", {"default": "directory path"}),
                 "save_mode": (['Merge','Overwrite','SaveNew','MergeAndSaveNew'],),
             },
         }
 
-    # INPUT_IS_LIST = True
+    INPUT_IS_LIST = True
     RETURN_TYPES = ()
     FUNCTION = "SaveIT"
     OUTPUT_NODE = True
 
     CATEGORY = "🔶DATASET🔶"
 
-    def SaveIT(self, content, file_name, save_in, save_mode):
+    def SaveIT(self, TextFileContens, TextFileNames, destination, save_mode):
         try:
 
-            directory = save_in
-            mode = save_mode
+            directory = destination[0]
+            mode = save_mode[0]
 
             if not os.path.exists(directory):
                 os.makedirs(directory)
 
-            save_file(f"{file_name}.txt", directory, content, mode)
+            for i in range(0, len(TextFileContens)):
+                text = TextFileContens[i]
+                file_name = TextFileNames[i]
+                save_file(f"{file_name}.txt", directory, text, mode)
 
         except Exception as e:
             print(f"Error saving: {e}")
 
         return ()
-    
-    @classmethod
-    def IS_CHANGED(s, content, file_name, directory, mode):       
-       return os.urandom(16).hex()
-
 
 N_CLASS_MAPPINGS = {
-    "DATASET_TXTFileSaver": DATASET_TXTFileSaver,
+    "DataSet_TextFilesSave": DataSet_TextFilesSave,
 }
 
 N_DISPLAY_NAME_MAPPINGS = {
-    "DATASET_TXTFileSaver": "DATASET_TXTFileSaver",
+    "DataSet_TextFilesSave": "DataSet_TextFilesSave",
 }

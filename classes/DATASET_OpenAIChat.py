@@ -1,7 +1,6 @@
 from openai import OpenAI
-import os
 
-class DATASET_OpenAIChat:
+class DataSet_OpenAIChat:
 
     def __init__(self):
         pass
@@ -34,14 +33,10 @@ class DATASET_OpenAIChat:
         except Exception as e:
             return (f"Error: {str(e)}",)
     
-    @classmethod
-    def IS_CHANGED(s, model, api_url, api_key, prompt, token_length):       
-       return os.urandom(16).hex()
-
 N_CLASS_MAPPINGS = {
-    "DATASET_OpenAIChat": DATASET_OpenAIChat,
+    "DataSet_OpenAIChat": DataSet_OpenAIChat,
 }
 
 N_DISPLAY_NAME_MAPPINGS = {
-    "DATASET_OpenAIChat": "DATASET_OpenAIChat",
+    "DataSet_OpenAIChat": "DataSet_OpenAIChat",
 }

@@ -5,7 +5,7 @@ import numpy as np
 from openai import OpenAI
 import os
 
-class DATASET_OpenAIChatImageBatch:
+class DataSet_OpenAIChatImageBatch:
 
     def __init__(self):
         pass
@@ -70,15 +70,11 @@ class DATASET_OpenAIChatImageBatch:
 
         except Exception as e:
             return (f"Error: {str(e)}",)
-    
-    @classmethod
-    def IS_CHANGED(s, image, image_detail, model, api_url, api_key, prompt, token_length):       
-       return os.urandom(16).hex()
 
 N_CLASS_MAPPINGS = {
-    "DATASET_OpenAIChatImageBatch": DATASET_OpenAIChatImageBatch,
+    "DataSet_OpenAIChatImageBatch": DataSet_OpenAIChatImageBatch,
 }
 
 N_DISPLAY_NAME_MAPPINGS = {
-    "DATASET_OpenAIChatImageBatch": "DATASET_OpenAIChatImageBatch",
+    "DataSet_OpenAIChatImageBatch": "DataSet_OpenAIChatImageBatch",
 }

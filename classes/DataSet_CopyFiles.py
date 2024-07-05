@@ -5,8 +5,13 @@ def blind_copy(source, destination):
     os.makedirs(destination, exist_ok=True)
     for filename in os.listdir(source):
         source_file = os.path.join(source, filename)
+        dest_file = os.path.join(destination, filename)
         if os.path.isfile(source_file):
-            shutil.copy(source_file, destination)
+            try:
+                shutil.copy(source_file, dest_file)
+                print(f"Copied {source_file} to {dest_file}")
+            except Exception as e:
+                print(f"Failed to copy {source_file} to {dest_file}: {e}")
 
 def copy_by_destination_files(source, destination):
     os.makedirs(destination, exist_ok=True)
@@ -17,9 +22,13 @@ def copy_by_destination_files(source, destination):
             file_base_name = os.path.splitext(filename)[0]
             dest_file_match = any(os.path.splitext(dest_filename)[0] == file_base_name for dest_filename in dest_files)
             if dest_file_match and filename not in dest_files:
-                shutil.copy(source_file, destination)
+                try:
+                    shutil.copy(source_file, destination)
+                    print(f"Copied {source_file} to {destination}")
+                except Exception as e:
+                    print(f"Failed to copy {source_file} to {destination}: {e}")
 
-class DATASET_xCopy:
+class DataSet_CopyFiles:
 
     def __init__(self):
         pass
@@ -56,14 +65,10 @@ class DATASET_xCopy:
 
         return ()
 
-    @classmethod
-    def IS_CHANGED(s, source_folder, destination_folder, mode):       
-       return os.urandom(16).hex()
-
 N_CLASS_MAPPINGS = {
-    "DATASET_xCopy": DATASET_xCopy,
+    "DataSet_CopyFiles": DataSet_CopyFiles,
 }
 
 N_DISPLAY_NAME_MAPPINGS = {
-    "DATASET_xCopy": "DATASET_xCopy",
+    "DataSet_CopyFiles": "DataSet_CopyFiles",
 }

@@ -7,7 +7,7 @@ import hashlib
 from PIL import Image, ImageOps, ImageSequence, ImageFile
 
 #code credit: nodes.py comfui 
-class DATASET_LoadImage:
+class DataSet_LoadImage:
     @classmethod
     def INPUT_TYPES(s):
         input_dir = folder_paths.get_input_directory()
@@ -18,7 +18,7 @@ class DATASET_LoadImage:
             },
         }
 
-    CATEGORY = "image"
+    CATEGORY = "🔶DATASET🔶"
 
     RETURN_TYPES = ("IMAGE", "MASK", "STRING", "STRING", "STRING", "STRING")
     RETURN_NAMES = ("image", "image_mask", "image_name", "image_name_without_extension", "image_path", "image_directory_path")
@@ -89,9 +89,9 @@ class DATASET_LoadImage:
 
 
 N_CLASS_MAPPINGS = {
-    "DATASET_LoadImage": DATASET_LoadImage,
+    "DataSet_LoadImage": DataSet_LoadImage,
 }
 
 N_DISPLAY_NAME_MAPPINGS = {
-    "DATASET_LoadImage": "DATASET_LoadImage",
+    "DataSet_LoadImage": "DataSet_LoadImage",
 }

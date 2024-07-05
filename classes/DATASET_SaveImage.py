@@ -6,7 +6,7 @@ from PIL import Image
 from PIL.PngImagePlugin import PngInfo
 from comfy.cli_args import args
 
-class DATASET_SaveImage:
+class DataSet_SaveImage:
 
     def __init__(self):
         self.compression = 4
@@ -16,7 +16,7 @@ class DATASET_SaveImage:
         return {
             "required": {
                 "Images": ("IMAGE",),
-                "Directory": ("STRING", {}),
+                "destination": ("STRING", {}),
                 "Filename": ("STRING", {"default": "Image"}),
             },
             "hidden": {"prompt": "PROMPT", "extra_pnginfo": "EXTRA_PNGINFO"},
@@ -25,13 +25,13 @@ class DATASET_SaveImage:
     RETURN_TYPES = ()
     FUNCTION = "BatchSave"
     OUTPUT_NODE = True
-    CATEGORY = "🔵 JDCN 🔵"
+    CATEGORY = "🔶DATASET🔶"
 
-    def BatchSave(self, Images, Directory, Filename, prompt=None, extra_pnginfo=None):
+    def BatchSave(self, Images, destination, Filename, prompt=None, extra_pnginfo=None):
 
         try:
 
-            Directory = Directory
+            Directory = destination
             Filename = Filename
 
             if not os.path.exists(Directory):
@@ -61,9 +61,9 @@ class DATASET_SaveImage:
 
 
 N_CLASS_MAPPINGS = {
-    "DATASET_SaveImage": DATASET_SaveImage,
+    "DataSet_SaveImage": DataSet_SaveImage,
 }
 
 N_DISPLAY_NAME_MAPPINGS = {
-    "DATASET_SaveImage": "DATASET_SaveImage",
+    "DataSet_SaveImage": "DataSet_SaveImage",
 }
