@@ -35,6 +35,8 @@ Data Research, Preparation, and Manipulation Nodes for Model Trainers, Artists, 
 
 ## DataSet_Visualizer
 
+![Screenshot 2024-07-05 195633](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/3b6ef307-6d86-48e4-b9a0-d59610aeeb82)
+
   The `DataSet_Visualizer` node is designed to visualize datasets by generating a word cloud, a network graph, and a frequency table from tag contents provided in text files.
 
   #### Inputs
@@ -50,6 +52,8 @@ Data Research, Preparation, and Manipulation Nodes for Model Trainers, Artists, 
 
 ## DataSet_CopyFiles
 
+![Screenshot 2024-07-05 195651](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/7176f6b8-8e88-4c64-bb78-cb53afe8e368)
+
   The `DataSet_CopyFiles` node provides a methods to copy files from a source folder to a destination folder based on different copying modes: blind copy and copy by matching destination files.
   
   #### Inputs
@@ -60,6 +64,8 @@ Data Research, Preparation, and Manipulation Nodes for Model Trainers, Artists, 
     - 'CopyByDestinationFiles': Copies files from the source folder to the destination only if there is a matching file (based on the base name) already present in the destination.
 
 ## DataSet_TriggerWords
+
+![Screenshot 2024-07-05 195619](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/1ab3f438-6b47-4054-8b99-107fdb04d1d4)
 
 The `DataSet_TriggerWords` node is designed to identify and extract trigger words or phrases from text file contents. Trigger words are identified based on the presence of digits within the words.
 
@@ -74,6 +80,8 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
 
 ## DataSet_TextFilesLoadFromList
 
+![Screenshot 2024-07-05 195544](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/fa596e21-e5fd-40ac-a351-e2fa9949fcf9)
+
   The `DataSet_TextFilesLoadFromList` node is designed to load and read contents from a list of text file paths. It extracts file names, file names without extensions, file paths, and file contents.
   
   #### Inputs
@@ -87,6 +95,8 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
 
 ## DataSet_TextFilesLoad
 
+![Screenshot 2024-07-05 195531](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/f16b6575-0be6-4945-8afb-11d54f40649e)
+
   The `DataSet_TextFilesLoad` node is designed to load and read contents from text files within a specified directory. It extracts file names, file names without extensions, file paths, and file contents.
   
   #### Inputs
@@ -99,6 +109,8 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
   - **TextFileContents**: (`STRING`, list) - The contents of the text files in the directory.
 
 ## DataSet_TextFilesSave
+
+![Screenshot 2024-07-05 195656](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/303fee7e-5b1a-4343-95a8-dfb8c9aebf6c)
 
   ### Overview
   The `DataSet_TextFilesSave` node is designed to save text file contents to a specified directory with various saving modes. It supports overwriting, merging, creating new files, and merging before saving new files.
@@ -117,6 +129,8 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
   - This class does not produce any output types.
 
 ## DataSet_FindAndReplace
+
+![Screenshot 2024-07-05 195639](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/12b9c2a7-54ea-4d01-ae2b-53898865ca7f)
   
   The `DataSet_FindAndReplace` node facilitates finding and replacing specific text patterns within text file contents.
   
@@ -129,6 +143,8 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
   - **TextFileContents**: (`STRING`, list) - The modified contents of the text file(s) after performing the find and replace operation.
 
 ## DataSet_PathSelector
+
+![Screenshot 2024-07-05 195538](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/ef4602bf-d0d6-46b5-aa1e-027f2d2cff7d)
 
   The `DataSet_PathSelector` node is designed to search for files with specific extensions in one directory and then select files with matching names (excluding extensions) from another directory.
   
@@ -145,6 +161,8 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
 
 ## DataSet_ConceptManager
 
+![Screenshot 2024-07-05 195624](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/de1c1dd8-b688-435c-96cd-3368b4f13162)
+
   The `DataSet_ConceptManager` node is designed to manage concepts within text file contents. It allows adding or removing specified concepts at defined positions.
   
   #### Inputs
@@ -156,6 +174,8 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
   - **TextFileContents**: (`STRING`, list) - The modified contents of the text file(s) after adding or removing concepts.
 
 ## DataSet_OpenAIChat
+
+![Screenshot 2024-07-05 195559](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/0876389a-6617-4974-9705-4240ddcf7545)
 
   The `DataSet_OpenAIChat` node integrates with the OpenAI API to generate responses based on given prompts using various GPT models.
   
@@ -171,6 +191,8 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
 
 ## DataSet_LoadImage
 
+![Screenshot 2024-07-05 195550](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/3a1ce311-8c37-430c-9620-0719cf721aba)
+
   The `DataSet_LoadImage` node provides functionality to load and process images from a specified directory using Pillow and numpy.
   
   #### Inputs
@@ -185,6 +207,8 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
   - **STRING**: The directory path of the image file.
 
 ## DataSet_SaveImage
+
+![Screenshot 2024-07-05 195646](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/e7aed0b4-526a-4b74-94c7-bc2c417063d6)
 
   The `DataSet_SaveImage` node facilitates batch saving of images to a specified directory with optional PNG metadata using Pillow and numpy.
   
@@ -202,6 +226,8 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
 
 ## DataSet_OpenAIChatImage
 
+![Screenshot 2024-07-05 195607](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/8a9313e4-9f73-4b9c-a483-63491af41f3f)
+
   The `DataSet_OpenAIChatImage` node integrates image input with OpenAI's chat API for generating text-based responses.
   
   #### Inputs
@@ -217,6 +243,8 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
   - STRING: Text-based response generated by the AI model.
 
 ## DataSet_OpenAIChatImageBatch
+
+![Screenshot 2024-07-05 195615](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/5fe30dba-c9e0-4fb1-a97f-306210831502)
 
   The `DataSet_OpenAIChatImageBatch` class extends the functionality of `DataSet_OpenAIChatImage` to process batches of images with OpenAI's chat API for generating text-based responses.
   
