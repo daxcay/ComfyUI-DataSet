@@ -47,11 +47,11 @@ The DataSet_Visualizer node is designed to visualize dataset captions. It genera
 ![Screenshot 2024-07-05 195633](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/3b6ef307-6d86-48e4-b9a0-d59610aeeb82)
 
   #### Inputs
-  - **TextFileContents**(STRING, required): The contents of the text file to be processed.
-  - **Seperator**(['comma', 'colon', 'space', 'pipe'], required): The delimiter used to separate tags in the text file.
-  - **WordCloudTop**(INT, default: 1, min: 1, max: 9999, required): The number of top tags to include in the word cloud visualization.
-  - **NetworkGraphTop**(INT, default: 1, min: 1, max: 9999, required): The number of top tag co-occurrences to include in the network graph visualization.
-  - **FrequencyGraphTop**(INT, default: 1, min: 1, max: 9999, required): The number of top tags to include in the frequency table.
+  - **TextFileContents**(STRING, required): the contents of the text file to be processed.
+  - **Seperator**(['comma', 'colon', 'space', 'pipe'], required): the delimiter used to separate tags in the text file.
+  - **WordCloudTop**(INT, min: 1, max: 9999, required): the number of top tokens to be plotted in WordCloud.
+  - **NetworkGraphTop**(INT, min: 1, max: 9999, required): the number of top tokens having the highest interconnections within the captions.
+  - **FrequencyGraphTop**(INT, min: 1, max: 9999, required): the number of top tags with highest frequency from highest to lowest
 
   #### Outputs
   - **GraphsPaths**(STRING, list): The file paths of the generated visualizations. It includes paths for: Word cloud image, Network graph image, Frequency table image
