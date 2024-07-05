@@ -6,9 +6,8 @@ Data research, preparation, and manipulation nodes for model trainers and artist
 
 </br>
 
+##### Drag & drop image into your workspace for node layout
 ![COMFY-UI-DATASET](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/f7984a60-3ba3-4292-b720-d9a9706903c3)
-
-##### you can drag this to comfy
 
 </br>
 
