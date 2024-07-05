@@ -59,7 +59,8 @@ Data Research, Preparation, and Manipulation Nodes for Model Trainers, Artists, 
   - **GraphsPaths**: (STRING, list) - The file paths of the generated visualizations. It includes paths for: Word cloud image, Network graph image, Frequency table image
   - **GraphsImages**: (IMAGE, list) - The generated images for the visualizations.
 
-
+</br>
+</br>
 
 ## DataSet_CopyFiles
 
