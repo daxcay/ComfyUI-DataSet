@@ -229,14 +229,14 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
 ## Credits
 
 🔶 Daxton Caylor - ComfyUI Node Developer 
-- Discord - daxtoncaylor
-- Email - daxtoncaylor@gmail.com
-- Discord server: https://discord.gg/Z44Zjpurjp
-- Commission Status:  🟢 **Open** 🟢
+  - **Discord** - daxtoncaylor
+  - **Email** - daxtoncaylor@gmail.com
+  - **Discord server**: https://discord.gg/Z44Zjpurjp
+  - **Commission Status**:  🟢 **Open** 🟢
 
 🔶 https://github.com/rafstahelin
-- Node Request & Testing
+  - **Node Request & Testing**
 
 ## Support for DataSet ❤️
-- Buy me a coffee: https://buymeacoffee.com/daxtoncaylor
-- If you like to suppport me you can donate me on paypal: https://paypal.me/daxtoncaylor
+  - **Buy me a coffee**: https://buymeacoffee.com/daxtoncaylor
+  - **If you like to suppport me you can donate me on paypal**: https://paypal.me/daxtoncaylor
