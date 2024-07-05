@@ -4,28 +4,30 @@ Data Research, Preparation, and Manipulation Nodes for Model Trainers, Artists, 
 
 ## Installation
 
-##### Using `comfy-cli` (https://github.com/yoland68/comfy-cli)
-- `comfy node registry-install ComfyUI-DataSet`
-- https://registry.comfy.org/publishers/daxcay/nodes/comfyui-dataset
+#### Using `comfy-cli` (https://github.com/yoland68/comfy-cli)
+  - `comfy node registry-install ComfyUI-DataSet`
+  - https://registry.comfy.org/publishers/daxcay/nodes/comfyui-dataset
   
-##### Manual Method
-- Go to your Comfyui > Custom Nodes folder
-- Run CMD from folder path box or right click on empty area and click open in terminal.
-- Copy and Paste this command `git clone https://github.com/daxcay/ComfyUI-DataSet.git`
-- Then go inside ComfyUI-DataSet with cmd or open new.
-- and type `pip install -r requirements.txt` to install the requirements.
+#### Manual Method
+  - Go to your Comfyui > Custom Nodes folder
+  - Run CMD from folder path box or right click on empty area and click open in terminal.
+  - Copy and Paste this command `git clone https://github.com/daxcay/ComfyUI-DataSet.git`
+  - Then go inside ComfyUI-DataSet with cmd or open new.
+  - and type `pip install -r requirements.txt` to install the requirements.
 
-##### Automatic Method with [Comfy Manager](https://github.com/ltdrdata/ComfyUI-Manager)
-- Inside ComfyUI > Click Manager Button on Side.
-- Click `Custom Nodes Manager` and  Search for `DataSet` and Install this node:
-- ![image](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/796bf982-20fc-4859-8096-7138d207214e)
-- Restart ComfyUI and it should be good to go
+#### Automatic Method with [Comfy Manager](https://github.com/ltdrdata/ComfyUI-Manager)
+  - Inside ComfyUI > Click Manager Button on Side.
+  - Click `Custom Nodes Manager` and  Search for `DataSet` and Install this node:
+    
+    ![image](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/796bf982-20fc-4859-8096-7138d207214e)
+    
+  - Restart ComfyUI and it should be good to go
 
-##### Recommended Plugin
-- **ComfyUI-JDCN** (https://github.com/daxcay/ComfyUI-JDCN) 
+#### Recommended Plugin
+  - **ComfyUI-JDCN** (https://github.com/daxcay/ComfyUI-JDCN) 
 
-##### You can find DataSet under this category:
-![image](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/4930b434-1993-47c4-bd71-d16f762f94a4)
+### You can find DataSet under this category:
+  ![image](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/4930b434-1993-47c4-bd71-d16f762f94a4)
 
 ## DataSet_Visualizer
 
