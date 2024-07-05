@@ -38,8 +38,8 @@ class DataSet_TextFilesSave:
     def INPUT_TYPES(s):
         return {
             "required": {
-                "TextFileContents": ("STRING",{"forceInput": True}),
                 "TextFileNames": ("STRING",{"forceInput": True}),
+                "TextFileContents": ("STRING",{"forceInput": True}),
                 "destination": ("STRING", {"default": "directory path"}),
                 "save_mode": (['Merge','Overwrite','SaveNew','MergeAndSaveNew'],),
             },
@@ -52,7 +52,7 @@ class DataSet_TextFilesSave:
 
     CATEGORY = "🔶DATASET🔶"
 
-    def SaveIT(self, TextFileContens, TextFileNames, destination, save_mode):
+    def SaveIT(self, TextFileNames, TextFileContents, destination, save_mode):
         try:
 
             directory = destination[0]
@@ -61,8 +61,8 @@ class DataSet_TextFilesSave:
             if not os.path.exists(directory):
                 os.makedirs(directory)
 
-            for i in range(0, len(TextFileContens)):
-                text = TextFileContens[i]
+            for i in range(0, len(TextFileContents)):
+                text = TextFileContents[i]
                 file_name = TextFileNames[i]
                 save_file(f"{file_name}.txt", directory, text, mode)
 
