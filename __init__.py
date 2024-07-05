@@ -14,7 +14,7 @@
 @author: Daxton Caylor
 @title: ComfyUI-DataSet
 @nickname: ComfyUI-DataSet
-@description: Advanced Training Data Research, Preparation, and Manipulation Nodes for Expert Model Trainers, Artists, Designers, and Animators.
+@description: Data Research, Preparation, and Manipulation Nodes for Model Trainers, Artists, Designers, and Animators.
 """
 
 from .classes.DataSet_Visualizer import N_CLASS_MAPPINGS as VisualizerMappings, N_DISPLAY_NAME_MAPPINGS as VisualizerNameMappings
