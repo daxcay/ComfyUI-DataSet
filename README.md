@@ -1,12 +1,8 @@
-![COMFY-UI](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/f9d6fcf0-9ab8-40bd-8997-303bf3b0f994)
-
 # ComfyUI-DataSet
 
 Data Research, Preparation, and Manipulation Nodes for Model Trainers, Artists, Designers, and Animators.
 
-![workflow (4)](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/9bc9aceb-1d36-454a-9c0a-d462152af88f)
-
-### Installation
+## Installation
 
 ##### Using `comfy-cli` (https://github.com/yoland68/comfy-cli)
 - `comfy node registry-install ComfyUI-DataSet`
@@ -31,14 +27,11 @@ Data Research, Preparation, and Manipulation Nodes for Model Trainers, Artists, 
 ##### You can find DataSet under this category:
 ![image](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/4930b434-1993-47c4-bd71-d16f762f94a4)
 
-
-# DataSet_Visualizer
-
-  ![Screenshot 2024-07-05 123511](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/e9ade9f8-0856-408d-8ffe-224c523b9371)
+## DataSet_Visualizer
 
   The `DataSet_Visualizer` node is designed to visualize datasets by generating a word cloud, a network graph, and a frequency table from tag contents provided in text files.
 
-  #### Input Parameters
+  #### Inputs
   - **TextFileContents**: (STRING, required) - The contents of the text file to be processed.
   - **Seperator**: (['comma', 'colon', 'space', 'pipe'], required) - The delimiter used to separate tags in the text file. Acceptable values are: 'comma' for `,` 'colon' for `;` 'space' for a ` ` 'pipe' for `|`
   - **WordCloudTop**: (INT, default: 1, min: 1, max: 9999, required) - The number of top tags to include in the word cloud visualization.
@@ -49,33 +42,189 @@ Data Research, Preparation, and Manipulation Nodes for Model Trainers, Artists, 
   - **GraphsPaths**: (STRING, list) - The file paths of the generated visualizations. It includes paths for: Word cloud image, Network graph image, Frequency table image
   - **GraphsImages**: (IMAGE, list) - The generated images for the visualizations.
 
-# DataSet_CopyFiles
-
-  ![Screenshot 2024-07-05 123444](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/ce92523a-e7ae-42f5-be82-f75964d0f1bc)
+## DataSet_CopyFiles
 
   The `DataSet_CopyFiles` node provides a methods to copy files from a source folder to a destination folder based on different copying modes: blind copy and copy by matching destination files.
   
-  #### Input Parameters
+  #### Inputs
   - **source_folder**: (STRING, default: "directory path", required) - The path of the source folder containing files to be copied.
   - **destination_folder**: (STRING, default: "directory path", required) - The path of the destination folder where files will be copied.
   - **copy_mode**: (['BlindCopy', 'CopyByDestinationFiles'], required) - The mode of copying files:
     - 'BlindCopy': Copies all files from the source to the destination folder.
     - 'CopyByDestinationFiles': Copies files from the source folder to the destination only if there is a matching file (based on the base name) already present in the destination.
 
-# DataSet_FindAndReplace
+## DataSet_TriggerWords
 
-  ![Screenshot 2024-07-05 123439](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/649d1ed9-edf2-4983-bf31-8aeaaf2be814)
+The `DataSet_TriggerWords` node is designed to identify and extract trigger words or phrases from text file contents. Trigger words are identified based on the presence of digits within the words.
+
+  #### Inputs
+  - **TextFileContents**: (`STRING`, required) - The contents of the text file(s) to be processed.
+  - **search**: (`['trigger_word_only', 'trigger_word_phrase']`, required) - The mode of searching for trigger words:
+    - `'trigger_word_only'`: Extracts individual trigger words containing digits.
+    - `'trigger_word_phrase'`: Extracts entire phrases up to the next comma if any word in the phrase contains a digit.
+  
+  #### Outputs
+  - **Words**: (`STRING`, list) - The extracted trigger words or phrases from the text file(s).
+
+## DataSet_TextFilesLoadFromList
+
+  The `DataSet_TextFilesLoadFromList` node is designed to load and read contents from a list of text file paths. It extracts file names, file names without extensions, file paths, and file contents.
+  
+  #### Inputs
+  - **TextFilePathsList**: (`STRING`, required) - A list of file paths to the text files to be loaded. Only paths ending with `.txt` will be processed.
+  
+  #### Outputs
+  - **TextFileNames**: (`STRING`, list) - The names of the text files.
+  - **TextFileNamesWithoutExtension**: (`STRING`, list) - The names of the text files without their extensions.
+  - **TextFilePaths**: (`STRING`, list) - The file paths of the text files.
+  - **TextFileContents**: (`STRING`, list) - The contents of the text files.
+
+## DataSet_TextFilesLoad
+
+  The `DataSet_TextFilesLoad` node is designed to load and read contents from text files within a specified directory. It extracts file names, file names without extensions, file paths, and file contents.
+  
+  #### Inputs
+  - **directory**: (`STRING`, required) - The directory path where the text files are located. The path should be specified as a string.
+  
+  #### Outputs
+  - **TextFileNames**: (`STRING`, list) - The names of the text files in the directory.
+  - **TextFileNamesWithoutExtension**: (`STRING`, list) - The names of the text files without their extensions.
+  - **TextFilePaths**: (`STRING`, list) - The file paths of the text files in the directory.
+  - **TextFileContents**: (`STRING`, list) - The contents of the text files in the directory.
+
+## DataSet_TextFilesSave
+
+  ### Overview
+  The `DataSet_TextFilesSave` node is designed to save text file contents to a specified directory with various saving modes. It supports overwriting, merging, creating new files, and merging before saving new files.
+  
+  #### Inputs
+  - **TextFileNames**: (`STRING`, required) - The names of the text files to be saved.
+  - **TextFileContents**: (`STRING`, required) - The contents of the text files to be saved.
+  - **destination**: (`STRING`, required) - The directory path where the text files will be saved.
+  - **save_mode**: (['Overwrite', 'Merge', 'SaveNew', 'MergeAndSaveNew'], required) - The mode of saving the files:
+    - `Overwrite`: Overwrites existing files with the same name.
+    - `Merge`: Appends content to existing files with the same name.
+    - `SaveNew`: Saves new files with a unique name if a file with the same name already exists.
+    - `MergeAndSaveNew`: Merges content with existing files and then saves as a new file with a unique name if a file with the same name already exists.
+  
+  #### Outputs
+  - This class does not produce any output types.
+
+## DataSet_FindAndReplace
   
   The `DataSet_FindAndReplace` node facilitates finding and replacing specific text patterns within text file contents.
   
-  #### Input Parameters
+  #### Inputs
   - **TextFileContents**: (`STRING`, required) - The contents of the text file(s) where the search and replace operation will be performed.
   - **SearchFor**: (`STRING`, default: "concept", required) - The text pattern to search for within the `TextFileContents`. Supports multiline input.
   - **ReplaceWith**: (`STRING`, default: "concept", required) - The replacement text for the `SearchFor` pattern. Supports multiline input.
   
-  ### Outputs
+  #### Outputs
   - **TextFileContents**: (`STRING`, list) - The modified contents of the text file(s) after performing the find and replace operation.
+
+## DataSet_PathSelector
+
+  The `DataSet_PathSelector` node is designed to search for files with specific extensions in one directory and then select files with matching names (excluding extensions) from another directory.
   
+  #### Inputs
+  - **search_in_directory**: (`STRING`, required) - The directory to search for files.
+  - **search_for_extensions**: (`STRING`, required) - The extensions of files to search for, separated by commas (e.g., `.txt, .csv`).
+  - **select_from_directory**: (`STRING`, required) - The directory to select matching files from.
+  - **select_extensions**: (`STRING`, required) - The extensions of files to select, separated by commas (e.g., `.txt, .csv`).
+  
+  #### Outputs
+  - **SelectedNamesWithExtension**: (`STRING`, list) - The names of the selected files with their extensions.
+  - **SelectedNamesWithoutExtension**: (`STRING`, list) - The names of the selected files without their extensions.
+  - **SelectedPaths**: (`STRING`, list) - The full paths of the selected files.
+
+## DataSet_ConceptManager
+
+  The `DataSet_ConceptManager` node is designed to manage concepts within text file contents. It allows adding or removing specified concepts at defined positions.
+  
+  #### Inputs
+  - **TextFileContents**: (`STRING`, required) - The contents of the text file(s) to be processed.
+  - **Mode**: (`STRING`, required) - The mode of operation: `'add'` to add concepts or `'remove'` to remove concepts.
+  - **Concepts**: (`STRING`, required) - The concepts to add or remove, formatted as text-position pairs (e.g., `"concept1 0, concept2 2"` for adding, `"concept1, concept2"` for removing).
+  
+  #### Outputs
+  - **TextFileContents**: (`STRING`, list) - The modified contents of the text file(s) after adding or removing concepts.
+
+## DataSet_OpenAIChat
+
+  The `DataSet_OpenAIChat` node integrates with the OpenAI API to generate responses based on given prompts using various GPT models.
+  
+  #### Inputs
+  - **model**: (STRING, required) - The OpenAI model to use for generating responses. Options include `"gpt-4"`, `"gpt-4-32k"`, `"gpt-3.5-turbo"`, and others.
+  - **api_url**: (STRING, default: `"https://api.openai.com/v1"`) - The base URL of the OpenAI API.
+  - **api_key**: (STRING, required) - The API key required for authentication with the OpenAI API.
+  - **prompt**: (STRING, default: "") - The prompt to start the conversation or generate responses.
+  - **token_length**: (INT, default: 1024) - The maximum number of tokens (words) in the generated response.
+  
+  #### Outputs
+  - **STRING**: The generated response from the OpenAI model based on the provided prompt.
+
+## DataSet_LoadImage
+
+  The `DataSet_LoadImage` node provides functionality to load and process images from a specified directory using Pillow and numpy.
+  
+  #### Inputs
+  - **image**: (STRING, required) - The name of the image file to load from the input directory.
+  
+  #### Outputs
+  - **IMAGE**: The loaded image.
+  - **MASK**: The mask associated with the image.
+  - **STRING**: The name of the image file.
+  - **STRING**: The name of the image file without extension.
+  - **STRING**: The full path of the image file.
+  - **STRING**: The directory path of the image file.
+
+## DataSet_SaveImage
+
+  The `DataSet_SaveImage` node facilitates batch saving of images to a specified directory with optional PNG metadata using Pillow and numpy.
+  
+  #### Inputs
+  - **Images**: (IMAGE, required) - List of images to save.
+  - **ImageFilePrefix**: (STRING, default: "Image") - Prefix for the saved image filenames.
+  - **destination**: (STRING) - Directory path where images will be saved.
+  
+  #### Hidden Parameters
+  - **prompt**: (PROMPT) - Optional prompt metadata for PNG files.
+  - **extra_pnginfo**: (EXTRA_PNGINFO) - Additional metadata information in dictionary format for PNG files.
+  
+  #### Outputs
+  - None
+
+## DataSet_OpenAIChatImage
+
+  The `DataSet_OpenAIChatImage` node integrates image input with OpenAI's chat API for generating text-based responses.
+  
+  #### Inputs
+  - **image**: (IMAGE, required) - Image to be processed.
+  - **image_detail**: (STRING, default: "high") - Detail level of the image ("low" or "high").
+  - **prompt**: (STRING, default: "") - Text prompt for the AI model.
+  - **model**: (STRING, default: "gpt-4o") - OpenAI model to use ("gpt-4o", "gpt-4", etc.).
+  - **api_url**: (STRING, default: "https://api.openai.com/v1") - OpenAI API endpoint URL.
+  - **api_key**: (STRING) - OpenAI API key for authentication.
+  - **token_length**: (INT, default: 1024) - Maximum token length for the generated response.
+  
+  #### Outputs
+  - STRING: Text-based response generated by the AI model.
+
+## DataSet_OpenAIChatImageBatch
+
+  The `DataSet_OpenAIChatImageBatch` class extends the functionality of `DataSet_OpenAIChatImage` to process batches of images with OpenAI's chat API for generating text-based responses.
+  
+  #### Inputs
+  - **images**: (IMAGE, required) - List of images to be processed.
+  - **image_detail**: (STRING, default: "high") - Detail level of the images ("low" or "high").
+  - **prompt**: (STRING, default: "") - Text prompt for the AI model.
+  - **model**: (STRING, default: "gpt-4o") - OpenAI model to use ("gpt-4o", "gpt-4", etc.).
+  - **api_url**: (STRING, default: "https://api.openai.com/v1") - OpenAI API endpoint URL.
+  - **api_key**: (STRING) - OpenAI API key for authentication.
+  - **token_length**: (INT, default: 1024) - Maximum token length for the generated response.
+  
+  #### Outputs
+  - STRING: List of text-based responses generated by the AI model for each input image.
 
 ## Credits
 
