@@ -6,7 +6,7 @@ Data Research, Preparation, and Manipulation Nodes for Model Trainers, Artists, 
 
 </br>
 
-![COMFY-UI-DATASET](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/1ebeb79a-5d47-4f13-bfe9-d579bc7986a7)
+![COMFY-UI-DATASET](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/f7984a60-3ba3-4292-b720-d9a9706903c3)
 
 ##### you can drag this to comfy
 
