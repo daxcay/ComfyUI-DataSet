@@ -1,7 +1,8 @@
 import os
 import json
 import numpy as np
-from PIL import Image, PngInfo
+from PIL import Image
+from PIL.PngImagePlugin import PngInfo
 from comfy.cli_args import args
 
 class DataSet_SaveImage:
