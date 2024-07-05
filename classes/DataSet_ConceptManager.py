@@ -44,7 +44,7 @@ class DataSet_ConceptManager:
 
     INPUT_IS_LIST = True
     RETURN_TYPES = ("STRING",)
-    RETURN_NAMES = ("TextFileContents")
+    RETURN_NAMES = ("TextFileContents",)
     OUTPUT_IS_LIST = (True,)
     FUNCTION = "SaveIT"
     OUTPUT_NODE = True
@@ -61,7 +61,8 @@ class DataSet_ConceptManager:
 
         except Exception as e:
             print(f"Error saving: {e}")
-        return (edited)
+
+        return (edited,)
 
 N_CLASS_MAPPINGS = {
     "DataSet_ConceptManager": DataSet_ConceptManager,
