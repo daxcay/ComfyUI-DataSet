@@ -2,7 +2,7 @@
 
 </br>
 
-Data Research, Preparation, and Manipulation Nodes for Model Trainers, Artists, Designers, and Animators.
+Data research, preparation, and manipulation nodes for model trainers and artists.
 
 </br>
 
