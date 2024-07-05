@@ -21,6 +21,7 @@ class DataSet_SaveImage:
             "hidden": {"prompt": "PROMPT", "extra_pnginfo": "EXTRA_PNGINFO"},
         }
 
+    INPUT_IS_LIST = True
     RETURN_TYPES = ()
     FUNCTION = "BatchSave"
     OUTPUT_NODE = True
@@ -28,13 +29,22 @@ class DataSet_SaveImage:
 
     def BatchSave(self, Images, ImageFilePrefix, destination, prompt=None, extra_pnginfo=None):
         try:
-            Directory = destination
+            ImageFilePrefix = ImageFilePrefix[0]
+            Directory = destination[0]
 
             if not os.path.exists(Directory):
                 os.makedirs(Directory)
 
             for i, image in enumerate(Images):
                 image = image.cpu().numpy()
+
+                # Handle image shape to be (H, W, C)
+                if image.ndim == 4:  # If the image has a batch dimension
+                    image = image[0]
+
+                if image.ndim == 3 and image.shape[0] == 1:  # If the image has an extra dimension
+                    image = image[0]
+
                 image = (image * 255).astype(np.uint8)
                 img = Image.fromarray(image)
                 metadata = None
@@ -42,10 +52,11 @@ class DataSet_SaveImage:
                     metadata = PngInfo()
                     if prompt is not None:
                         metadata.add_text("prompt", json.dumps(prompt))
-                    if extra_pnginfo is not None:
+                    if extra_pnginfo is not None and isinstance(extra_pnginfo, dict):
                         for key, value in extra_pnginfo.items():
                             metadata.add_text(key, json.dumps(value))
 
+                # Generate filename with padding of 4 digits
                 filename = f"{ImageFilePrefix}_{str(i).zfill(4)}.png"
                 file_path = os.path.join(Directory, filename)
                 img.save(file_path, pnginfo=metadata, compress_level=self.compression)
