@@ -51,7 +51,7 @@ The DataSet_Visualizer node is designed to visualize dataset captions. It genera
   - **Seperator**(['comma', 'colon', 'space', 'pipe'], required): the delimiter used to separate tags in the text file.
   - **WordCloudTop**(INT, min: 1, max: 9999, required): the number of top tokens to be plotted in WordCloud.
   - **NetworkGraphTop**(INT, min: 1, max: 9999, required): the number of top tokens having the highest interconnections within the captions.
-  - **FrequencyGraphTop**(INT, min: 1, max: 9999, required): the number of top tags with highest frequency from highest to lowest
+  - **FrequencyGraphTop**(INT, min: 1, max: 9999, required): the number of top tags with highest frequency from highest to lowest.
 
   #### Outputs
   - **GraphsPaths**(STRING, list): the file paths of the generated visualizations. It includes paths for: WordCloud image, NetworkGraph image, FrequencyTable image
@@ -61,9 +61,9 @@ The DataSet_Visualizer node is designed to visualize dataset captions. It genera
 
 ## DataSet_CopyFiles
 
-![Screenshot 2024-07-05 195651](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/7176f6b8-8e88-4c64-bb78-cb53afe8e368)
+The `DataSet_CopyFiles` node provides a method to copy files from a source folder to a destination folder using different modes: `BlindCopy` and `CopyByDestinationFiles` files.
 
-  The `DataSet_CopyFiles` node provides a methods to copy files from a source folder to a destination folder based on different copying modes: blind copy and copy by matching destination files.
+![Screenshot 2024-07-05 195651](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/7176f6b8-8e88-4c64-bb78-cb53afe8e368)
   
   #### Inputs
   - **source_folder**: (STRING, default: "directory path", required) - The path of the source folder containing files to be copied.
