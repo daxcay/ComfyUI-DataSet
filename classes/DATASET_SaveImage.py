@@ -57,7 +57,7 @@ class DataSet_SaveImage:
                             metadata.add_text(key, json.dumps(value))
 
                 # Generate filename with padding of 4 digits
-                filename = f"{ImageFilePrefix}_{str(i).zfill(4)}.png"
+                filename = f"{ImageFilePrefix}_{str(i).zfill(5)}.png"
                 file_path = os.path.join(Directory, filename)
                 img.save(file_path, pnginfo=metadata, compress_level=self.compression)
 
