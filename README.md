@@ -1,12 +1,11 @@
 # ComfyUI-DataSet
-
 </br>
-
 Data research, preparation, and manipulation nodes for model trainers and artists.
 
 </br>
 
 ##### Drag & drop image into your workspace for node layout
+
 ![COMFY-UI-DATASET](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/f7984a60-3ba3-4292-b720-d9a9706903c3)
 
 </br>
@@ -18,11 +17,10 @@ Data research, preparation, and manipulation nodes for model trainers and artist
   - https://registry.comfy.org/publishers/daxcay/nodes/comfyui-dataset
   
 #### Manual Method
-  - Go to your Comfyui > Custom Nodes folder
-  - Run CMD from folder path box or right click on empty area and click open in terminal.
-  - Copy and Paste this command `git clone https://github.com/daxcay/ComfyUI-DataSet.git`
+  - Go to your Comfyui > Custom Nodes folder path > Run CMD
+  - Copy and Paste this command git clone ```https://github.com/daxcay/ComfyUI-DataSet.git```
   - Then go inside ComfyUI-DataSet with cmd or open new.
-  - and type `pip install -r requirements.txt` to install the requirements.
+  - type ```pip install -r requirements.txt``` to install the dependencies
 
 #### Automatic Method with [Comfy Manager](https://github.com/ltdrdata/ComfyUI-Manager)
   - Inside ComfyUI > Click Manager Button on Side.
@@ -95,7 +93,7 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
 
 ## DataSet_TextFilesLoadFromList
 
-![Screenshot 2024-07-05 195544](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/fa596e21-e5fd-40ac-a351-e2fa9949fcf9)
+![Screenshot 2024-07-05 204333](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/a674f684-85f3-4f34-8c3e-b1b34bf89bac)
 
   The `DataSet_TextFilesLoadFromList` node is designed to load and read contents from a list of text file paths. It extracts file names, file names without extensions, file paths, and file contents.
   
@@ -112,7 +110,7 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
 
 ## DataSet_TextFilesLoad
 
-![Screenshot 2024-07-05 195531](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/f16b6575-0be6-4945-8afb-11d54f40649e)
+![Screenshot 2024-07-05 204321](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/a136dec1-38d1-454e-9f0e-014837428225)
 
   The `DataSet_TextFilesLoad` node is designed to load and read contents from text files within a specified directory. It extracts file names, file names without extensions, file paths, and file contents.
   
@@ -167,7 +165,7 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
 
 ## DataSet_PathSelector
 
-![Screenshot 2024-07-05 195538](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/ef4602bf-d0d6-46b5-aa1e-027f2d2cff7d)
+![Screenshot 2024-07-05 204328](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/181cca81-8a67-40a4-99ef-56c6dc8c0c76)
 
   The `DataSet_PathSelector` node is designed to search for files with specific extensions in one directory and then select files with matching names (excluding extensions) from another directory.
   
@@ -220,7 +218,7 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
 
 ## DataSet_LoadImage
 
-![Screenshot 2024-07-05 195550](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/3a1ce311-8c37-430c-9620-0719cf721aba)
+![Screenshot 2024-07-05 204341](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/9530778f-1998-4a37-8708-3a2ab562c6ff)
 
   The `DataSet_LoadImage` node provides functionality to load and process images from a specified directory using Pillow and numpy.
   
