@@ -1,9 +1,7 @@
 import os
 import json
-import json
 import numpy as np
-from PIL import Image
-from PIL.PngImagePlugin import PngInfo
+from PIL import Image, PngInfo
 from comfy.cli_args import args
 
 class DataSet_SaveImage:
@@ -12,11 +10,11 @@ class DataSet_SaveImage:
         self.compression = 4
 
     @classmethod
-    def INPUT_TYPES(s):
+    def INPUT_TYPES(cls):
         return {
             "required": {
                 "Images": ("IMAGE",),
-                "ImageFileNames": ("STRING", {"default": "Image"}),
+                "ImageFilePrefix": ("STRING", {"default": "Image"}),
                 "destination": ("STRING", {}),
             },
             "hidden": {"prompt": "PROMPT", "extra_pnginfo": "EXTRA_PNGINFO"},
@@ -27,18 +25,14 @@ class DataSet_SaveImage:
     OUTPUT_NODE = True
     CATEGORY = "🔶DATASET🔶"
 
-    def BatchSave(self, Images, ImageFileNames, destination, prompt=None, extra_pnginfo=None):
-
+    def BatchSave(self, Images, ImageFilePrefix, destination, prompt=None, extra_pnginfo=None):
         try:
-
             Directory = destination
-            Filename = Filename
 
             if not os.path.exists(Directory):
                 os.makedirs(Directory)
 
-            for image in Images:                
-
+            for i, image in enumerate(Images):
                 image = image.cpu().numpy()
                 image = (image * 255).astype(np.uint8)
                 img = Image.fromarray(image)
@@ -48,17 +42,17 @@ class DataSet_SaveImage:
                     if prompt is not None:
                         metadata.add_text("prompt", json.dumps(prompt))
                     if extra_pnginfo is not None:
-                        for x in extra_pnginfo:
-                            metadata.add_text(x, json.dumps(extra_pnginfo[x]))
+                        for key, value in extra_pnginfo.items():
+                            metadata.add_text(key, json.dumps(value))
 
-                file_path = os.path.join(Directory,Filename)
+                filename = f"{ImageFilePrefix}_{str(i).zfill(4)}.png"
+                file_path = os.path.join(Directory, filename)
                 img.save(file_path, pnginfo=metadata, compress_level=self.compression)
 
         except Exception as e:
             print(f"Error saving image: {e}")
 
         return ()
-
 
 N_CLASS_MAPPINGS = {
     "DataSet_SaveImage": DataSet_SaveImage,
