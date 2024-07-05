@@ -54,8 +54,8 @@ The DataSet_Visualizer node is designed to visualize dataset captions. It genera
   - **FrequencyGraphTop**(INT, min: 1, max: 9999, required): the number of top tags with highest frequency from highest to lowest
 
   #### Outputs
-  - **GraphsPaths**(STRING, list): The file paths of the generated visualizations. It includes paths for: Word cloud image, Network graph image, Frequency table image
-  - **GraphsImages**(IMAGE, list): The generated images for the visualizations.
+  - **GraphsPaths**(STRING, list): the file paths of the generated visualizations. It includes paths for: WordCloud image, NetworkGraph image, FrequencyTable image
+  - **GraphsImages**(IMAGE, list): the generated images for the visualizations which can be used with PreviewImage and SaveImage node.
 
 </br>
 
