@@ -1,7 +1,9 @@
-# ComfyUI-DataSet
-</br>
-Data research, preparation, and manipulation nodes for model trainers and artists.
 
+![COMFY-UI (1)](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/a3fadc2f-d84c-4312-b570-c583dc528f2f)
+
+# ComfyUI-DataSet
+
+Data research, preparation, and manipulation nodes for model trainers and artists.
 </br>
 
 ##### Drag & drop image into your workspace for node layout
