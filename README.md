@@ -30,7 +30,7 @@ Data research, preparation, and manipulation nodes for model trainers and artist
     
   - Restart ComfyUI and it should be good to go
 
-#### Recommended Node
+#### Recommended Plugin
   - **ComfyUI-JDCN** (https://github.com/daxcay/ComfyUI-JDCN) 
 
 </br>
@@ -42,7 +42,7 @@ Data research, preparation, and manipulation nodes for model trainers and artist
 
 ## DataSet_Visualizer
 
-The DataSet_Visualizer node is designed to visualize dataset captions. It generates graphs offering various perspectives on token analysis. The word cloud represents token frequency with different sized fonts. The network graph illustrates the relationships between tokens. The frequency graph provides an exact metric of how often each token appears in your captions.
+The `DataSet_Visualizer` node is designed to visualize dataset captions. It generates graphs offering various perspectives on token analysis. The word cloud represents token frequency with different sized fonts. The network graph illustrates the relationships between tokens. The frequency graph provides an exact metric of how often each token appears in your captions.
 
 ![Screenshot 2024-07-05 195633](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/3b6ef307-6d86-48e4-b9a0-d59610aeeb82)
 
@@ -76,24 +76,24 @@ The `DataSet_CopyFiles` node provides a method to copy files from a source folde
 
 ## DataSet_TriggerWords
 
-The `DataSet_TriggerWords` node is designed to identify and extract trigger words or phrases from text file contents. Trigger words are identified based on the presence of digits within the words.
+The `DataSet_TriggerWords` node is designed to extract triggerwords from captions. The node identifies triggerwords as tokens containing BOTH letters and numbers. 
 
 ![Screenshot 2024-07-05 195619](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/1ab3f438-6b47-4054-8b99-107fdb04d1d4)
 
   #### Inputs
   - **TextFileContents** (`STRING`, required): the contents of the text file(s) to be processed.
-  - **search**(`['trigger_word_only', 'trigger_word_phrase']`, required): the mode of searching for trigger words:
-    - `'trigger_word_only'`: extracts individual trigger words containing digits.
-    - `'trigger_word_phrase'`: extracts entire phrases up to the next comma if any word in the phrase contains a digit.
+  - **search**(`['trigger_word_only', 'trigger_word_phrase']`, required):
+    - `'trigger_word_only'`: extracts individual triggerwords only
+    - `'trigger_word_phrase'`: extracts entire phrase (contained within two comma's) which contains a triggerword
   
   #### Outputs
-  - **Words**: (`STRING`, list) - the extracted trigger words or phrases from the text file(s).
+  - **Words** (`STRING`, list): the extracted triggerwords or triggerword-containing phrase
 
 </br>
 
 ## DataSet_TextFilesLoadFromList
 
-  The `DataSet_TextFilesLoadFromList` node is designed to load and read contents from a list of text file paths. It extracts file names, file names without extensions, file paths, and file contents.
+  The `DataSet_TextFilesLoad` node is designed to process the basic attributes of txt files. It can for instance extract filenames or filenames WITHOUT extensions, file-paths and file-contents. Useful for certain batched workflows. It takes a file directory path as input
 
 ![Screenshot 2024-07-05 204333](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/a674f684-85f3-4f34-8c3e-b1b34bf89bac)
 
@@ -111,7 +111,7 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
 
 ## DataSet_TextFilesLoad
 
-  The `DataSet_TextFilesLoad` node is designed to load and read contents from text files within a specified directory. It extracts file names, file names without extensions, file paths, and file contents.
+  Same as above, but uses a widget path to file directory for input
 
 ![Screenshot 2024-07-05 204321](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/a136dec1-38d1-454e-9f0e-014837428225)
 
@@ -129,7 +129,7 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
 
 ## DataSet_TextFilesSave
 
-  The `DataSet_TextFilesSave` node is designed to save text file contents to a specified directory with various saving modes. It supports overwriting, merging, creating new files, and merging before saving new files.
+  The `DataSet_TextFilesSave` node is designed to save text file contents to a specified directory. Supports the following modes: overwriting, merging, creating new files, and merging before saving new files DONT UNDERSTAND THIS.
 
 ![Screenshot 2024-07-05 195656](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/303fee7e-5b1a-4343-95a8-dfb8c9aebf6c)
   
@@ -147,76 +147,77 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
 
 ## DataSet_FindAndReplace
 
-  The `DataSet_FindAndReplace` node facilitates finding and replacing specific text patterns within text file contents.
+  The `DataSet_FindAndReplace` node finds and replaces a text pattern within caption text files.
 
 ![Screenshot 2024-07-05 195639](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/12b9c2a7-54ea-4d01-ae2b-53898865ca7f)
   
   #### Inputs
-  - **TextFileContents**(`STRING`, required): the contents of the text file(s) where the search and replace operation will be performed.
-  - **SearchFor**(`STRING`, default: "concept", required): the text pattern to search for within the `TextFileContents`. Supports multiline input.
-  - **ReplaceWith**(`STRING`, default: "concept", required): the replacement text for the `SearchFor` pattern. Supports multiline input.
+  - **TextFileContents**(`STRING`, required): the text file contents to be processed
+  - **SearchFor**(`STRING`, default: "search-text", required): the searched text pattern within the `TextFileContents`. Supports multiline input.
+  - **ReplaceWith**(`STRING`, default: "replacement-text", required): the replacement text for the `SearchFor` pattern. Supports multiline input.
   
   #### Outputs
-  - **TextFileContents**(`STRING`, list): the modified contents of the text file(s) after performing the find and replace operation.
+  - **TextFileContents**(`STRING`, list): the modified contents of the text files
 
 </br>
 
 ## DataSet_PathSelector
 
-  The `DataSet_PathSelector` node is designed to search for files with specific extensions in one directory and then select files with matching names (excluding extensions) from another directory.
-
+  The `DataSet_PathSelector` is useful for identifying images in a sub-dataset which are missing caption text files from a larger parent repository of image-text pairings. The node will search for orphaned text/image files in one directory which require the missing pair files with matching names from another directory. 
+  
 ![Screenshot 2024-07-05 204328](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/181cca81-8a67-40a4-99ef-56c6dc8c0c76)
   
   #### Inputs
-  - **search_in_directory**(`STRING`, required): the directory to search for files.
-  - **search_for_extensions**(`STRING`, required): the extensions of files to search for, separated by commas (e.g., `.txt, .csv`).
-  - **select_from_directory**(`STRING`, required): the directory to select matching files from.
-  - **select_extensions**(`STRING`, required): the extensions of files to select, separated by commas (e.g., `.txt, .csv`).
+  - **search_in_directory**(`STRING`, required): the sub-dataset directory missing pairings
+  - **search_for_extensions**(`STRING`, required): the extensions of the orphaned files, separated by commas (e.g., `.txt, .csv`).
+  - **select_from_directory**(`STRING`, required): the repository directory containing the complete text-image pairings.
+  - **select_extensions**(`STRING`, required): the extensions of the required files to be added, separated by commas (e.g., `.txt, .csv`).
   
   #### Outputs
-  - **SelectedNamesWithExtension**(`STRING`, list): the names of the selected files with their extensions.
-  - **SelectedNamesWithoutExtension**(`STRING`, list): the names of the selected files without their extensions.
-  - **SelectedPaths**(`STRING`, list): the full paths of the selected files.
+  - **SelectedNamesWithExtension**(`STRING`, list): the names of the required files with their extensions.
+  - **SelectedNamesWithoutExtension**(`STRING`, list): the names of the required files without their extensions.
+  - **SelectedPaths**(`STRING`, list): the full paths of the required files.
 
 </br>
 
 ## DataSet_ConceptManager
 
-  The `DataSet_ConceptManager` node is designed to manage concepts within text file contents. It allows adding or removing specified concepts at defined positions.
+  The `DataSet_ConceptManager` node is designed to add/remove tags within caption files, and it will allow you to place these tags at designated positions within the caption
 
 ![Screenshot 2024-07-05 195624](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/de1c1dd8-b688-435c-96cd-3368b4f13162)
   
   #### Inputs
   - **TextFileContents**(`STRING`, required): the contents of the text file(s) to be processed.
-  - **Mode**(`STRING`, required): the mode of operation: `'add'` to add concepts or `'remove'` to remove concepts.
-  - **Concepts**(`STRING`, required): the concepts to add or remove, formatted as text-position pairs (e.g., `"concept1 0, concept2 2"` for adding, `"concept1, concept2"` for removing).
+  - **Mode**(`STRING`, required): the mode of operation: `'add'` to add tags or `'remove'` to remove tags.
+  - **Concepts**(`STRING`, required): the concepts to add or remove, formatted as text + position (e.g., `"tag1 0, tag2 2"` for adding, `"tag1, tag2"` for removing).
   
   #### Outputs
-  - **TextFileContents**(`STRING`, list): the modified contents of the text file(s) after adding or removing concepts.
+  - **TextFileContents**(`STRING`, list): the modified contents of the caption file(s) 
 
 </br>
 
-## DataSet_OpenAIChat
+## DataSet_OpenAIChat  MAYBE CHANGE THIS TO DataSet_OpenAIChatPrompt
 
-  The `DataSet_OpenAIChat` node integrates with the OpenAI API to generate responses based on given prompts using various GPT models.
+  The `DataSet_OpenAIChat` uses the OpenAI GPT chat to help you generate prompts. 
 
 ![Screenshot 2024-07-05 195559](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/0876389a-6617-4974-9705-4240ddcf7545)
   
   #### Inputs
-  - **model**(STRING, required): the OpenAI model to use for generating responses. Options include `"gpt-4"`, `"gpt-4-32k"`, `"gpt-3.5-turbo"`, and others.
-  - **api_url**(STRING, default: `"https://api.openai.com/v1"`): the base URL of the OpenAI API.
-  - **api_key**(STRING, required): the API key required for authentication with the OpenAI API.
-  - **prompt**(STRING, default: ""): the prompt to start the conversation or generate responses.
-  - **token_length**(INT, default: 1024): the maximum number of tokens (words) in the generated response.
+  - **model**(STRING, required): select the OpenAI model. Options include `"GPTo"`, `"gpt-3.5-turbo"`, etc.
+  - **api_url**(STRING, default: `"https://api.openai.com/v1"`): the base URL for the API.
+  - **api_key**(STRING, required): the API key for authentication.
+  - **prompt**(STRING, default: ""): the query chat. Prompt GPT to generate prompts
+  - **token_length**(INT, default: 1024): the maximum number of tokens (words).
   
   #### Outputs
-  - **STRING**: the generated response from the OpenAI model based on the provided prompt.
+  - **STRING**: the GPT generated new prompt
 
 </br>
 
 ## DataSet_LoadImage
 
-  The `DataSet_LoadImage` node provides functionality to load and process images from a specified directory using Pillow and numpy.
+  The `DataSet_LoadImage` node provides essential image file attributes for captioning with the `DataSet_OpenAIChat` node. It leverages
+ Pillow and Numpy libraries.
 
 ![Screenshot 2024-07-05 204341](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/9530778f-1998-4a37-8708-3a2ab562c6ff)  
 
@@ -224,7 +225,7 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
   - **image** (STRING, required): the name of the image file to load from the input directory.
   
   #### Outputs
-  - **IMAGE**: the loaded image.
+  - **IMAGE**: the image file.
   - **MASK**: the mask associated with the image.
   - **STRING**: the name of the image file.
   - **STRING**: the name of the image file without extension.
@@ -235,7 +236,7 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
 
 ## DataSet_SaveImage
 
-  The `DataSet_SaveImage` node facilitates batch saving of images to a specified directory with optional PNG metadata using Pillow and numpy.
+  The `DataSet_SaveImage` node batch saves images to a specified directory with optional PNG metadata. Also uses Pillow and Numpy.
 
 ![Screenshot 2024-07-05 195646](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/e7aed0b4-526a-4b74-94c7-bc2c417063d6)
   
@@ -248,7 +249,7 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
 
 ## DataSet_OpenAIChatImage
 
-  The `DataSet_OpenAIChatImage` node integrates image input with OpenAI's chat API for generating text-based responses.
+  The `DataSet_OpenAIChat` uses the OpenAI GPTo multi-modal vision API in a chat framework, in order to caption images.
 
 ![Screenshot 2024-07-05 195607](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/8a9313e4-9f73-4b9c-a483-63491af41f3f)
   
@@ -256,19 +257,19 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
   - **image**(IMAGE, required): image to be processed.
   - **image_detail**(STRING, default: "high":  detail level of the image ("low" or "high").
   - **prompt**(STRING, default: ""): text prompt for the AI model.
-  - **model**(STRING, default: "gpt-4o"): OpenAI model to use ("gpt-4o", "gpt-4", etc.).
+  - **model**(STRING, default: "gpt-4o"): select the OpenAI model. Options include `"GPTo"`, `"gpt-3.5-turbo"`, etc.
   - **api_url**(STRING, default: "https://api.openai.com/v1"): OpenAI API endpoint URL.
-  - **api_key**(STRING): OpenAI API key for authentication.
+  - **api_key**(STRING):  the API key for authentication.
   - **token_length**(INT, default: 1024): maximum token length for the generated response.
   
   #### Outputs
-  - STRING: Text-based response generated by the AI model.
+  - STRING: generated captions
 
 </br>
 
 ## DataSet_OpenAIChatImageBatch
 
-  The `DataSet_OpenAIChatImageBatch` class extends the functionality of `DataSet_OpenAIChatImage` to process batches of images with OpenAI's chat API for generating text-based responses.  
+  The `DataSet_OpenAIChatImageBatch` class extends the functionality of `DataSet_OpenAIChatImage` to process batches of images with OpenAI's chat API for generating text catpions.
 
 ![Screenshot 2024-07-05 195615](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/5fe30dba-c9e0-4fb1-a97f-306210831502)
 
@@ -276,13 +277,13 @@ The `DataSet_TriggerWords` node is designed to identify and extract trigger word
   - **images**(IMAGE, required): list of images to be processed.
   - **image_detail**(STRING, default: "high"): detail level of the images ("low" or "high").
   - **prompt**(STRING, default: ""): text prompt for the AI model.
-  - **model**(STRING, default: "gpt-4o"): OpenAI model to use ("gpt-4o", "gpt-4", etc.).
+  - **model**(STRING, default: "gpt-4o"): select the OpenAI model. Options include `"GPTo"`, `"gpt-3.5-turbo"`, etc.
   - **api_url**(STRING, default: "https://api.openai.com/v1"): OpenAI API endpoint URL.
-  - **api_key**(STRING): OpenAI API key for authentication.
+  - **api_key**(STRING): the API key for authentication.
   - **token_length**(INT, default: 1024): maximum token length for the generated response.
   
   #### Outputs
-  - STRING: List of text-based responses generated by the AI model for each input image.
+  - STRING: list of generated captions
 
 </br>
 
