@@ -198,7 +198,7 @@ The `DataSet_TriggerWords` node is designed to extract triggerwords from caption
 
 </br>
 
-## DataSet_OpenAIChat  MAYBE CHANGE THIS TO DataSet_OpenAIChatPrompt
+## DataSet_OpenAIChat
 
   The `DataSet_OpenAIChat` uses the OpenAI GPT chat to help you generate prompts. 
 
