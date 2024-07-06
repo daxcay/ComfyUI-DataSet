@@ -3,6 +3,8 @@
 
 # ComfyUI-DataSet **v1.1.0**
 
+![image](https://img.shields.io/badge/version-1.1.0-green) ![image](https://img.shields.io/badge/last_update-July_2024-green)
+
 Data research, preparation, and manipulation nodes for model trainers and artists.
 </br>
 
