@@ -1,7 +1,7 @@
 
 ![COMFY-UI (1)](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/a3fadc2f-d84c-4312-b570-c583dc528f2f)
 
-# ComfyUI-DataSet
+# ComfyUI-DataSet **v1.1.0**
 
 Data research, preparation, and manipulation nodes for model trainers and artists.
 </br>
@@ -13,6 +13,8 @@ Data research, preparation, and manipulation nodes for model trainers and artist
 </br>
 
 ## Installation
+
+> **Note**: Please upgrade as this is a major update that renders all previous updates invalid.
 
 #### Using `comfy-cli` (https://github.com/yoland68/comfy-cli)
   - `comfy node registry-install ComfyUI-DataSet`
