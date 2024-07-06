@@ -41,7 +41,7 @@ class DataSet_TextFilesSave:
                 "TextFileNames": ("STRING",{"forceInput": True}),
                 "TextFileContents": ("STRING",{"forceInput": True}),
                 "destination": ("STRING", {"default": "directory path"}),
-                "save_mode": (['Merge','Overwrite','SaveNew','MergeAndSaveNew'],),
+                "save_mode": (['Overwrite','Merge','SaveNew','MergeAndSaveNew'],),
             },
         }
 
