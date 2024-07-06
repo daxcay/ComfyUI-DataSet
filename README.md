@@ -287,7 +287,7 @@ The `DataSet_TriggerWords` node is designed to extract triggerwords from caption
 
 </br>
 
-## Credits ❤️
+## Credits
 
 ### Daxton Caylor - ComfyUI Node Developer 
   
