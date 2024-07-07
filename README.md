@@ -1,7 +1,7 @@
 
 ![COMFY-UI (1)](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/a3fadc2f-d84c-4312-b570-c583dc528f2f)
 
-# ComfyUI-DataSet **v1.1.0**
+# ComfyUI-DataSet
 
 ![image](https://img.shields.io/badge/version-1.1.0-green) ![image](https://img.shields.io/badge/last_update-July_2024-green)
 
@@ -10,7 +10,7 @@ Data research, preparation, and manipulation nodes for model trainers and artist
 
 ##### Drag & drop image into your workspace for node layout
 
-![COMFY-UI-DATASET](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/f7984a60-3ba3-4292-b720-d9a9706903c3)
+![COMFY-UI-DATASET](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/b2265e40-5596-4d8f-951b-b6ba20c428e6)
 
 </br>
 
