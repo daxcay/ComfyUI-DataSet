@@ -1,5 +1,4 @@
-
-![COMFY-UI (1)](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/a3fadc2f-d84c-4312-b570-c583dc528f2f)
+![COMFY-UI (3)](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/998725d9-45c4-441d-901e-99833af93734)
 
 # ComfyUI-DataSet
 
