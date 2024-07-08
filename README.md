@@ -54,14 +54,16 @@ The `DataSet_Visualizer` node is designed to visualize dataset captions. It gene
 
   #### Inputs
   - **TextFileContents**(STRING, required): the contents of the text file to be processed.
-  - **Seperator**(['comma', 'colon', 'space', 'pipe'], required): the delimiter used to separate tags in the text file.
+  - **Seperator**(['comma', 'colon', 'space', 'pipe'], required): the delimiter used to separate tokens in the text file.
   - **WordCloudTop**(INT, min: 1, max: 9999, required): the number of top tokens to be plotted in WordCloud.
   - **NetworkGraphTop**(INT, min: 1, max: 9999, required): the number of top tokens having the highest interconnections within the captions.
-  - **FrequencyGraphTop**(INT, min: 1, max: 9999, required): the number of top tags with highest frequency from highest to lowest.
+  - **FrequencyGraphTop**(INT, min: 1, max: 9999, required): the number of top tokens with highest frequency from highest to lowest.
 
   #### Outputs
   - **GraphsPaths**(STRING, list): the file paths of the generated visualizations. It includes paths for: WordCloud image, NetworkGraph image, FrequencyTable image
   - **GraphsImages**(IMAGE, list): the generated images for the visualizations which can be used with PreviewImage and SaveImage node.
+
+  #### Example
 
 </br>
 
@@ -188,13 +190,13 @@ The `DataSet_TriggerWords` node is designed to extract triggerwords from caption
 
 ## DataSet_ConceptManager
 
-  The `DataSet_ConceptManager` node is designed to add/remove tags within caption files, and it will allow you to place these tags at designated positions within the caption
+  The `DataSet_ConceptManager` node is designed to add/remove tokens within caption files, and it will allow you to place these tokens at designated positions within the caption
 
 ![Screenshot 2024-07-05 195624](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/de1c1dd8-b688-435c-96cd-3368b4f13162)
   
   #### Inputs
   - **TextFileContents**(`STRING`, required): the contents of the text file(s) to be processed.
-  - **Mode**(`STRING`, required): the mode of operation: `'add'` to add tags or `'remove'` to remove tags.
+  - **Mode**(`STRING`, required): the mode of operation: `'add'` to add tokens or `'remove'` to remove tokens.
   - **Concepts**(`STRING`, required): the concepts to add or remove, formatted as text + position (e.g., `"tag1 0, tag2 2"` for adding, `"tag1, tag2"` for removing).
   
   #### Outputs
