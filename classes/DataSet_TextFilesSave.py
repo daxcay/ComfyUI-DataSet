@@ -1,32 +1,26 @@
 import os
 
-def save_file(filename, output_dir, content, mode='SaveNew'):
+def save_file(filename, output_dir, content, mode='Overwrite', file_mode='Windows'):
     os.makedirs(output_dir, exist_ok=True)
     file_path = os.path.join(output_dir, filename)
-    
-    if mode == 'SaveNew':
-        counter = 0
-        while os.path.exists(file_path):
-            counter += 1
-            file_path = os.path.join(output_dir, f"{os.path.splitext(filename)[0]}_{counter}{os.path.splitext(filename)[1]}")
+
+    if file_mode == 'Linux|Unix':
+        content = content.replace('\r\n', '\n').replace('\r', '\n')
+
+    if mode == 'Overwrite':
+        with open(file_path, 'w') as file:
+            file.write(content)
     elif mode == 'Merge' and os.path.exists(file_path):
         with open(file_path, 'a') as file:
             file.write(content)
-        print(f"Content appended successfully to {file_path}")
-        return
-    elif mode == 'Overwrite' and os.path.exists(file_path):
-        os.remove(file_path)
-    elif mode == 'MergeAndSaveNew' and os.path.exists(file_path):
-        with open(file_path, 'r') as file:
-            existing_content = file.read()
-        content = existing_content + content
+    else:
         counter = 0
         while os.path.exists(file_path):
             counter += 1
             file_path = os.path.join(output_dir, f"{os.path.splitext(filename)[0]}_{counter}{os.path.splitext(filename)[1]}")
+        with open(file_path, 'w') as file:
+            file.write(content)
     
-    with open(file_path, 'w') as file:
-        file.write(content)
     print(f"File saved successfully at {file_path}")
 
 class DataSet_TextFilesSave:
@@ -42,6 +36,7 @@ class DataSet_TextFilesSave:
                 "TextFileContents": ("STRING",{"forceInput": True}),
                 "destination": ("STRING", {"default": "directory path"}),
                 "save_mode": (['Overwrite','Merge','SaveNew','MergeAndSaveNew'],),
+                "file_mode": (['Windows','Linux|Unix'],),
             },
         }
 
@@ -52,11 +47,12 @@ class DataSet_TextFilesSave:
 
     CATEGORY = "🔶DATASET🔶"
 
-    def SaveIT(self, TextFileNames, TextFileContents, destination, save_mode):
+    def SaveIT(self, TextFileNames, TextFileContents, destination, save_mode, file_mode):
         try:
 
             directory = destination[0]
             mode = save_mode[0]
+            fmode = file_mode[0]
 
             if not os.path.exists(directory):
                 os.makedirs(directory)
@@ -64,7 +60,7 @@ class DataSet_TextFilesSave:
             for i in range(0, len(TextFileContents)):
                 text = TextFileContents[i]
                 file_name = TextFileNames[i]
-                save_file(f"{file_name}.txt", directory, text, mode)
+                save_file(f"{file_name}.txt", directory, text, mode, fmode)
 
         except Exception as e:
             print(f"Error saving: {e}")
