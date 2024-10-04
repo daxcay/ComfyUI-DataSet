@@ -39,7 +39,7 @@ function onNodeAdded(node, app) {
 let DataSet = {
     name: "ComfyUI-Dataset",
     async beforeRegisterNodeDef(nodeType, nodeData, app) {
-        if (isInGroup(nodeData.name, "loaders")) {
+        if (isInGroup(nodeData.name, "loaders") || isInGroup(nodeData.name, "processors") || isInGroup(nodeData.name, "handlers")) {
             nodeData.input.required['seed'] = ["INT", { "default": 0, "min": 0, "max": 18446744073709552000 }]
         }
     },
