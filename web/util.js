@@ -3,7 +3,7 @@ import { app } from "../../scripts/app.js";
 let groups = {
     "loaders": ['DataSet_TextFilesLoad', 'DataSet_TextFilesLoadFromList', 'DataSet_LoadImage', 'DataSet_PathSelector'],
     "processors": ['DataSet_Visualizer', 'DataSet_FindAndReplace', 'DataSet_ConceptManager', 'DataSet_TriggerWords', 'DataSet_OpenAIChatImageBatch', 'DataSet_OpenAIChatImage', 'DataSet_OpenAIChat'],
-    "handlers": ['DataSet_TextFilesSave', 'DataSet_SaveImage', 'DataSet_CopyFiles'],
+    "handlers": ['DataSet_TextFilesSave', 'DataSet_SaveImage', 'DataSet_SaveImagePro', 'DataSet_CopyFiles'],
 }
 
 let groupsNodesColor = {

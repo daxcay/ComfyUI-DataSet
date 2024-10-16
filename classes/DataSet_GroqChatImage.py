@@ -19,11 +19,10 @@ def getGroqModels(key):
         response = response.json()
         return [item['id'] for item in response['data'] if 'id' in item]
     except (requests.exceptions.RequestException, KeyError, ValueError):
-        return ['Key Invalid']
+        return ['Key Error']
 
 api_key = os.environ.get("GROQ_API_KEY")
 api_models = getGroqModels(api_key)
-
 
 class DataSet_GroqChatImage:
 
