@@ -10,7 +10,7 @@ def getGroqModels(key):
             "Content-Type": "application/json"
         }
         response = requests.get(url, headers=headers)
-        response.raise_for_status()  # Raises HTTPError for bad responses
+        response.raise_for_status()
         response = response.json()
         return [item['id'] for item in response['data'] if 'id' in item]
     except (requests.exceptions.RequestException, KeyError, ValueError):
