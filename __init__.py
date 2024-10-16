@@ -28,9 +28,12 @@ from .classes.DataSet_FindAndReplace import N_CLASS_MAPPINGS as FindAndReplaceMa
 from .classes.DataSet_PathSelector import N_CLASS_MAPPINGS as PathSelectorMappings, N_DISPLAY_NAME_MAPPINGS as PathSelectorNameMappings
 from .classes.DataSet_LoadImage import N_CLASS_MAPPINGS as LoadImageMappings,  N_DISPLAY_NAME_MAPPINGS as LoadImageNameMappings
 from .classes.DataSet_SaveImage import N_CLASS_MAPPINGS as SaveImageMappings,  N_DISPLAY_NAME_MAPPINGS as SaveImageNameMappings
+from .classes.DataSet_SaveImagePro import N_CLASS_MAPPINGS as SaveImageProMappings,  N_DISPLAY_NAME_MAPPINGS as SaveImageProNameMappings
 from .classes.DataSet_OpenAIChat import N_CLASS_MAPPINGS as OpenAIChatMappings, N_DISPLAY_NAME_MAPPINGS as OpenAIChatNameMappings
 from .classes.DataSet_OpenAIChatImage import N_CLASS_MAPPINGS as OpenAIChatImageMappings,  N_DISPLAY_NAME_MAPPINGS as OpenAIChatImageNameMappings
 from .classes.DataSet_OpenAIChatImageBatch import N_CLASS_MAPPINGS as OpenAIChatImageBatchMappings,  N_DISPLAY_NAME_MAPPINGS as OpenAIChatImageBatchNameMappings
+from .classes.DataSet_GroqChat import N_CLASS_MAPPINGS as GroqChatMappings,  N_DISPLAY_NAME_MAPPINGS as GroqChatNameMappings
+from .classes.DataSet_GroqChatImage import N_CLASS_MAPPINGS as GroqChatImageMappings,  N_DISPLAY_NAME_MAPPINGS as GroqChatImageNameMappings
 
 NODE_CLASS_MAPPINGS = {}
 NODE_CLASS_MAPPINGS.update(VisualizerMappings)
@@ -44,9 +47,12 @@ NODE_CLASS_MAPPINGS.update(PathSelectorMappings)
 NODE_CLASS_MAPPINGS.update(ConceptManagerMappings)
 NODE_CLASS_MAPPINGS.update(LoadImageMappings)
 NODE_CLASS_MAPPINGS.update(SaveImageMappings)
+NODE_CLASS_MAPPINGS.update(SaveImageProMappings)
 NODE_CLASS_MAPPINGS.update(OpenAIChatMappings)
 NODE_CLASS_MAPPINGS.update(OpenAIChatImageMappings)
 NODE_CLASS_MAPPINGS.update(OpenAIChatImageBatchMappings)
+NODE_CLASS_MAPPINGS.update(GroqChatMappings)
+NODE_CLASS_MAPPINGS.update(GroqChatImageMappings)
 
 NODE_DISPLAY_NAME_MAPPINGS = {}
 NODE_DISPLAY_NAME_MAPPINGS.update(VisualizerNameMappings)
@@ -60,8 +66,11 @@ NODE_DISPLAY_NAME_MAPPINGS.update(PathSelectorNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(ConceptManagerNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(LoadImageNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(SaveImageNameMappings)
+NODE_DISPLAY_NAME_MAPPINGS.update(SaveImageProNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(OpenAIChatNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(OpenAIChatImageNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(OpenAIChatImageBatchNameMappings)
+NODE_DISPLAY_NAME_MAPPINGS.update(GroqChatNameMappings)
+NODE_DISPLAY_NAME_MAPPINGS.update(GroqChatImageNameMappings)
 
 WEB_DIRECTORY = "./web"

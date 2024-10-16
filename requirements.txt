@@ -3,3 +3,4 @@ wordcloud
 networkx
 pandas
 openai
+groq
