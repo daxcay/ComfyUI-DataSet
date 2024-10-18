@@ -12,7 +12,7 @@ from itertools import combinations
 import pandas as pd
 import folder_paths
 
-def generate_wordcloud_and_network_graph(contents, separator, top_n_wordcloud=100, top_n_network=100, top_n_table=10):
+def generate_wordcloud_and_network_graph(contents, separator, top_n_wordcloud=100, top_n_network=100, top_n_table=10, word_list_frequency=3):
 
     output_dir = folder_paths.get_output_directory()
 
@@ -86,6 +86,10 @@ def generate_wordcloud_and_network_graph(contents, separator, top_n_wordcloud=10
 
     print("Network graph saved as", output_network_graph_file)
 
+    words = [word for word, freq in word_counter.items() if freq >= word_list_frequency]
+    list_1 = ', '.join(words)
+    list_2 = '\n'.join(words)
+
     tag_freq_table = pd.DataFrame.from_dict(word_counter, orient='index', columns=['Frequency'])
     tag_freq_table = tag_freq_table.sort_values(by='Frequency', ascending=False)
     tag_freq_table.reset_index(inplace=True)
@@ -109,7 +113,7 @@ def generate_wordcloud_and_network_graph(contents, separator, top_n_wordcloud=10
 
     print("Tag frequency table saved as", output_table_file)
 
-    return output_wordcloud_file, output_network_graph_file, output_table_file
+    return output_wordcloud_file, output_network_graph_file, output_table_file, list_1, list_2
 
 
 
@@ -152,23 +156,24 @@ class DataSet_Visualizer:
                 "Seperator": (['comma', 'colon', 'space', 'pipe'],),
                 "WordCloudTop": ("INT", {"default": 1, "min": 1, "max": 9999}),
                 "NetworkGraphTop": ("INT", {"default": 1, "min": 1, "max": 9999}),
-                "FrequencyGraphTop": ("INT", {"default": 1, "min": 1, "max": 9999})
+                "FrequencyGraphTop": ("INT", {"default": 1, "min": 1, "max": 9999}),
+                "FrequencyForWordList": ("INT", {"default": 1, "min": 1, "max": 9999}),
             },
         }
 
     INPUT_IS_LIST = True
-    RETURN_TYPES = ("STRING", "IMAGE")
-    RETURN_NAMES = ("GraphsPaths", "GraphsImages")
-    OUTPUT_IS_LIST = (True, True)
+    RETURN_TYPES = ("STRING", "IMAGE", "STRING", "STRING",)
+    RETURN_NAMES = ("GraphsPaths", "GraphsImages", "Words List 1", "Words List 2",)
+    OUTPUT_IS_LIST = (True, True, False, False)
     FUNCTION = "Visualize"
     OUTPUT_NODE = True
     CATEGORY = "🔶DATASET🔶"
 
-    def Visualize(self, TextFileContents, Seperator, WordCloudTop, NetworkGraphTop, FrequencyGraphTop):
+    def Visualize(self, TextFileContents, Seperator, WordCloudTop, NetworkGraphTop, FrequencyGraphTop, FrequencyForWordList):
 
         try:
 
-            wc, ng, fg = generate_wordcloud_and_network_graph(TextFileContents, Seperator[0], WordCloudTop[0], NetworkGraphTop[0], FrequencyGraphTop[0])
+            wc, ng, fg, l1, l2 = generate_wordcloud_and_network_graph(TextFileContents, Seperator[0], WordCloudTop[0], NetworkGraphTop[0], FrequencyGraphTop[0], FrequencyForWordList[0])
 
             images = []
             if os.path.exists(wc):
@@ -178,12 +183,12 @@ class DataSet_Visualizer:
             if os.path.exists(fg):
                 images.append(load_image(fg))
 
-            return ([wc, ng, fg], images,)
+            return ([wc, ng, fg], images, l1, l2)
 
         except Exception as e:
             print(f"Error saving: {e}")
 
-        return (["", "", ""],)
+        return (["", "", ""], "", "", "")
 
 N_CLASS_MAPPINGS = {
     "DataSet_Visualizer": DataSet_Visualizer,
