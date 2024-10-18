@@ -38,7 +38,7 @@ def getWords(combined_texts):
         text = " ".join(text_pos[0:num_pos])
         words.append(text)
 
-    joined_words = ', '.join(words)
+    joined_words = ',\n'.join(words)
     return joined_words
 
 
