@@ -26,7 +26,7 @@ def append_text(tags, combined_texts):
     return new_tags
 
 
-def getWords(combined_texts):
+def getWords(combined_texts, split):
 
     text_pos_list = [text_pos.strip().split()
                      for text_pos in combined_texts.split(',')]
@@ -38,7 +38,7 @@ def getWords(combined_texts):
         text = " ".join(text_pos[0:num_pos])
         words.append(text)
 
-    joined_words = ',\n'.join(words)
+    joined_words = f'{split}'.join(words)
     return joined_words
 
 
@@ -73,9 +73,9 @@ class DataSet_ConceptManager:
         }
 
     INPUT_IS_LIST = True
-    RETURN_TYPES = ("STRING", "STRING",)
-    RETURN_NAMES = ("TextFileContents", "Words",)
-    OUTPUT_IS_LIST = (True, False)
+    RETURN_TYPES = ("STRING", "STRING", "STRING",)
+    RETURN_NAMES = ("TextFileContents", "Words List 1", "Words List 2",)
+    OUTPUT_IS_LIST = (True, False, False)
     FUNCTION = "SaveIT"
     OUTPUT_NODE = True
     CATEGORY = "🔶DATASET🔶"
@@ -83,7 +83,8 @@ class DataSet_ConceptManager:
     def SaveIT(self, TextFileContents, Mode, Concepts):
         try:
             edited = []
-            words = []
+            words_1 = []
+            words_2 = []
 
             for content in TextFileContents:
                 if Mode[0] == "add":
@@ -91,12 +92,13 @@ class DataSet_ConceptManager:
                 elif Mode[0] == "remove":
                     edited.append(remove_text(content, Concepts[0]))
 
-            words = getWords(Concepts[0])
+            words_1 = getWords(Concepts[0],'\n')
+            words_2 = getWords(Concepts[0],', ')
 
         except Exception as e:
             print(f"Error saving: {e}")
 
-        return (edited, words, )
+        return ( edited, words_1, words_2 )
 
 
 N_CLASS_MAPPINGS = {
