@@ -91,11 +91,7 @@ def generate_wordcloud_and_network_graph(contents, separator, top_n_wordcloud=10
     tag_freq_table.reset_index(inplace=True)
     tag_freq_table.columns = ['Tag', 'Frequency']
 
-    print("--------------------------------------------------------------------")
-
-    table_height = max(6, 0.4 * len(tag_freq_table))
-
-    plt.figure(figsize=(12, table_height))
+    plt.figure(figsize=(12, 6))
     bars = plt.bar(tag_freq_table['Tag'][:top_n_table], tag_freq_table['Frequency'][:top_n_table], color='skyblue')
 
     for bar in bars:
@@ -105,10 +101,6 @@ def generate_wordcloud_and_network_graph(contents, separator, top_n_wordcloud=10
     plt.xlabel('Tag')
     plt.ylabel('Frequency')
     plt.xticks(rotation=45, ha='right')
-
-    plt.margins(x=0.1)
-    plt.subplots_adjust(bottom=0.2)
-
     plt.tight_layout()
 
     output_table_file = join(output_dir, 'tag_frequency_table.png')
