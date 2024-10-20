@@ -1,6 +1,6 @@
 import os
 
-def save_file(filename, output_dir, content, mode='Overwrite', file_mode='Windows'):
+def save_file(filename, output_dir, content, mode='Overwrite', file_mode='Windows', file_format='txt'):
     os.makedirs(output_dir, exist_ok=True)
     file_path = os.path.join(output_dir, filename)
 
@@ -12,6 +12,10 @@ def save_file(filename, output_dir, content, mode='Overwrite', file_mode='Window
             file.write(content)
     elif mode == 'Merge' and os.path.exists(file_path):
         with open(file_path, 'a') as file:
+            file.write(content)
+    elif mode == 'SaveWithNewFormat':
+        file_path = os.path.join(output_dir, f"{os.path.splitext(filename)[0]}.{file_format}")
+        with open(file_path, 'w') as file:
             file.write(content)
     else:
         counter = 0
@@ -35,8 +39,9 @@ class DataSet_TextFilesSave:
                 "TextFileNames": ("STRING",{"forceInput": True}),
                 "TextFileContents": ("STRING",{"forceInput": True}),
                 "destination": ("STRING", {"default": "directory path"}),
-                "save_mode": (['Overwrite','Merge','SaveNew','MergeAndSaveNew'],),
+                "save_mode": (['Overwrite','Merge','SaveNew','MergeAndSaveNew','SaveWithNewFormat'],),
                 "file_mode": (['Windows','Linux|Unix'],),
+                "file_format": (['na','txt','csv'],),
             },
         }
 
@@ -47,12 +52,13 @@ class DataSet_TextFilesSave:
 
     CATEGORY = "🔶DATASET🔶"
 
-    def SaveIT(self, TextFileNames, TextFileContents, destination, save_mode, file_mode):
+    def SaveIT(self, TextFileNames, TextFileContents, destination, save_mode, file_mode, file_format):
         try:
 
             directory = destination[0]
             mode = save_mode[0]
             fmode = file_mode[0]
+            fmat = file_format[0]
 
             if not os.path.exists(directory):
                 os.makedirs(directory)
@@ -60,7 +66,7 @@ class DataSet_TextFilesSave:
             for i in range(0, len(TextFileContents)):
                 text = TextFileContents[i]
                 file_name = TextFileNames[i]
-                save_file(f"{file_name}.txt", directory, text, mode, fmode)
+                save_file(f"{file_name}.txt", directory, text, mode, fmode, fmat)
 
         except Exception as e:
             print(f"Error saving: {e}")
