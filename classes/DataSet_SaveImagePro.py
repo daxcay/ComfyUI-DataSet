@@ -48,7 +48,7 @@ class DataSet_SaveImagePro:
         return {
             "required": {
                 "images": ("IMAGE",),
-                "names": ("STRING",),
+                "names": ("STRING", {}),
                 "destination": ("STRING", {}),
                 "image_format": (['png', 'jpg'],),
                 "image_quality": ("INT", {"default": 100, "min": 1, "max": 100}),
