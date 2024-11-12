@@ -2,7 +2,7 @@
 
 # ComfyUI-DataSet
 
-![image](https://img.shields.io/badge/version-1.1.0-green) ![image](https://img.shields.io/badge/last_update-July_2024-green)
+![image](https://img.shields.io/badge/version-1.1.0-green) ![image](https://img.shields.io/badge/last_update-Nov_2024-green)
 
 Data research, preparation, and manipulation nodes for model trainers and artists.
 </br>
@@ -12,6 +12,12 @@ Data research, preparation, and manipulation nodes for model trainers and artist
 ![COMFY-UI-DATASET](https://github.com/daxcay/ComfyUI-DataSet/assets/164315771/b2265e40-5596-4d8f-951b-b6ba20c428e6)
 
 </br>
+
+# Updates
+
+[**Nov 12th 2024**] 
+- Now ClaudeAIChat, GroqAIChat and OpenAIChat works on API KEYS Defined in System Environment.
+- Keys are: OPENAI_API_KEY, GROQ_API_KEY, ANTHROPIC_API_KEY 
 
 ## Installation
 
