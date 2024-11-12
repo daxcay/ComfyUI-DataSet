@@ -1,4 +1,5 @@
 from openai import OpenAI
+import os
 
 class DataSet_OpenAIChat:
 
@@ -11,7 +12,6 @@ class DataSet_OpenAIChat:
             "required": {
                 "model": (["gpt-4", "gpt-4-32k", "gpt-3.5-turbo", "gpt-4-0125-preview", "gpt-4-turbo-preview", "gpt-4-1106-preview", "gpt-4-0613"], {"default": "gpt-3.5-turbo"}),
                 "api_url": ("STRING", {"multiline": False, "default": "https://api.openai.com/v1"}),
-                "api_key": ("STRING", {"multiline": False}),
                 "prompt": ("STRING", {"multiline": True, "default": ""}),
                 "token_length": ("INT", {"default": 1024})
             }
@@ -21,8 +21,9 @@ class DataSet_OpenAIChat:
     FUNCTION = "generate"
     CATEGORY = "🔶DATASET🔶"
 
-    def generate(self, model, api_url, api_key, prompt, token_length):
+    def generate(self, model, api_url, prompt, token_length):
         try:
+            api_key = os.environ.get("OPENAI_API_KEY")
             ai = OpenAI(api_key=api_key, base_url=api_url)
             if not api_key:
                 return "OpenAI API key is required."

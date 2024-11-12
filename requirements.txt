@@ -4,3 +4,4 @@ networkx
 pandas
 openai
 groq
+anthropic

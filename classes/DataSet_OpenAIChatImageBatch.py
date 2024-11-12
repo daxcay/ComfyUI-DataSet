@@ -38,7 +38,7 @@ class DataSet_OpenAIChatImageBatch:
         img.save(buffered, format="PNG")
         return base64.b64encode(buffered.getvalue()).decode("utf-8")
 
-    def generate(self, images, image_detail, model, api_url, api_key, prompt, token_length):
+    def generate(self, images, image_detail, model, api_url, prompt, token_length):
 
         try:
 
@@ -53,6 +53,7 @@ class DataSet_OpenAIChatImageBatch:
 
             for image in images:
 
+                api_key = os.environ.get("OPENAI_API_KEY")
                 ai = OpenAI(api_key=api_key, base_url=api_url)
                 base64img = self.to_base64(image)
                 if not api_key:

@@ -34,6 +34,8 @@ from .classes.DataSet_OpenAIChatImage import N_CLASS_MAPPINGS as OpenAIChatImage
 from .classes.DataSet_OpenAIChatImageBatch import N_CLASS_MAPPINGS as OpenAIChatImageBatchMappings,  N_DISPLAY_NAME_MAPPINGS as OpenAIChatImageBatchNameMappings
 from .classes.DataSet_GroqChat import N_CLASS_MAPPINGS as GroqChatMappings,  N_DISPLAY_NAME_MAPPINGS as GroqChatNameMappings
 from .classes.DataSet_GroqChatImage import N_CLASS_MAPPINGS as GroqChatImageMappings,  N_DISPLAY_NAME_MAPPINGS as GroqChatImageNameMappings
+from .classes.DataSet_ClaudeAIChat import N_CLASS_MAPPINGS as ClaudeChatMappings,  N_DISPLAY_NAME_MAPPINGS as ClaudeChatNameMappings
+from .classes.DataSet_ClaudeAIChatImage import N_CLASS_MAPPINGS as ClaudeChatImageMappings,  N_DISPLAY_NAME_MAPPINGS as ClaudeChatImageNameMappings
 
 NODE_CLASS_MAPPINGS = {}
 NODE_CLASS_MAPPINGS.update(VisualizerMappings)
@@ -53,6 +55,8 @@ NODE_CLASS_MAPPINGS.update(OpenAIChatImageMappings)
 NODE_CLASS_MAPPINGS.update(OpenAIChatImageBatchMappings)
 NODE_CLASS_MAPPINGS.update(GroqChatMappings)
 NODE_CLASS_MAPPINGS.update(GroqChatImageMappings)
+NODE_CLASS_MAPPINGS.update(ClaudeChatMappings)
+NODE_CLASS_MAPPINGS.update(ClaudeChatImageMappings)
 
 NODE_DISPLAY_NAME_MAPPINGS = {}
 NODE_DISPLAY_NAME_MAPPINGS.update(VisualizerNameMappings)
@@ -72,5 +76,7 @@ NODE_DISPLAY_NAME_MAPPINGS.update(OpenAIChatImageNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(OpenAIChatImageBatchNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(GroqChatNameMappings)
 NODE_DISPLAY_NAME_MAPPINGS.update(GroqChatImageNameMappings)
+NODE_DISPLAY_NAME_MAPPINGS.update(ClaudeChatNameMappings)
+NODE_DISPLAY_NAME_MAPPINGS.update(ClaudeChatImageNameMappings)
 
 WEB_DIRECTORY = "./web"
