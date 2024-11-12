@@ -16,8 +16,8 @@ Data research, preparation, and manipulation nodes for model trainers and artist
 # Updates
 
 [**Nov 12th 2024**] 
-- Now ClaudeAIChat, GroqAIChat and OpenAIChat works on API KEYS Defined in System Environment.
-- Keys are: OPENAI_API_KEY, GROQ_API_KEY, ANTHROPIC_API_KEY 
+- Now **ClaudeAIChat**, **GroqAIChat** and **OpenAIChat** works on **API KEYS** Defined in System Environment.
+- Keys names are: **OPENAI_API_KEY**, **GROQ_API_KEY**, **ANTHROPIC_API_KEY** 
 
 ## Installation
 
