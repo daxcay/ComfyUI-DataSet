@@ -309,7 +309,7 @@ The `DataSet_TriggerWords` node is designed to extract triggerwords from caption
      - **Twitter**: @daxcay27
      - **Email** - daxtoncaylor@gmail.com
      - **Discord** - daxtoncaylor
-     - **DiscordServer**: https://discord.gg/Z44Zjpurjp
+     - **DiscordServer**: https://discord.gg/UyGkJycvyW
     
   - ### Support
      - **Buy me a coffee**: https://buymeacoffee.com/daxtoncaylor
