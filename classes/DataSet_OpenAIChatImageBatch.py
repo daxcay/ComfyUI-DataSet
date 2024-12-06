@@ -19,7 +19,6 @@ class DataSet_OpenAIChatImageBatch:
                 "prompt": ("STRING", {"multiline": True, "default": ""}),
                 "model": (["gpt-4o","gpt-4", "gpt-4-32k", "gpt-3.5-turbo", "gpt-4-0125-preview", "gpt-4-turbo-preview", "gpt-4-1106-preview", "gpt-4-0613"], {"default": "gpt-4o"}),
                 "api_url": ("STRING", {"multiline": False, "default": "https://api.openai.com/v1"}),
-                "api_key": ("STRING", {"multiline": False}),
                 "token_length": ("INT", {"default": 1024})
             }
         }
