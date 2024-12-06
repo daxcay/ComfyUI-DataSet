@@ -1,5 +1,5 @@
-import folder_paths
 import os
+import folder_paths
 import node_helpers
 import numpy as np
 import torch
