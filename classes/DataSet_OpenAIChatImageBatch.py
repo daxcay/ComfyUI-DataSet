@@ -37,33 +37,30 @@ class DataSet_OpenAIChatImageBatch:
         img.save(buffered, format="PNG")
         return base64.b64encode(buffered.getvalue()).decode("utf-8")
 
-    def generate(self, images, image_detail, model, api_url, prompt, token_length):
+    def generate(self, images, image_detail, prompt, model, api_url, token_length):
 
         try:
 
             image_detail = image_detail[0]
             model = model[0]
             api_url = api_url[0]
-            api_key = api_key[0]
             prompt = prompt[0]
             token_length = token_length[0]
 
             answers = []
 
-            for image in images:
+            api_key = os.environ.get("OPENAI_API_KEY")
+            ai = OpenAI(api_key=api_key, base_url=api_url)
 
-                api_key = os.environ.get("OPENAI_API_KEY")
-                ai = OpenAI(api_key=api_key, base_url=api_url)
+            for image in images:
                 base64img = self.to_base64(image)
                 if not api_key:
                     return "OpenAI API key is required."
-
                 request = [{"role": "system","content": "You are GPT-4."}]
                 request.append({"role": "user","content": [{"type": "image_url", "image_url": {"url": f"data:image/png;base64,{base64img}", "detail": image_detail}}]})
                 request.append({"role": "user","content": prompt})
                 response = ai.chat.completions.create(model=model,messages=request,max_tokens=token_length)
                 answer = response.choices[0].message.content
-
                 answers.append(answer)
 
             return (answers,)
