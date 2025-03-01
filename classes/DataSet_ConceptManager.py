@@ -42,20 +42,25 @@ def getWords(combined_texts, split):
     return joined_words
 
 
+
 def remove_text(tags, combined_texts):
+
     tags_list = [tag.strip() for tag in tags.split(',')]
-    text_pos_list = [text_pos.strip().split()
-                     for text_pos in combined_texts.split(',')]
+    text_pos_list = [text_pos.strip().split() for text_pos in combined_texts.split(',')]
 
     for text_pos in text_pos_list:
         num_pos = len(text_pos) - 1
         text = " ".join(text_pos[0:num_pos])
-        if text in tags_list:
-            tags_list.remove(text)
+        pos_str = text_pos[num_pos]
+
+        if pos_str == "#":  # Remove all instances of the text
+            tags_list = [tag for tag in tags_list if tag != text]
+        else:
+            if text in tags_list:
+                tags_list.remove(text)  # Remove only one instance
 
     new_tags = ', '.join(tags_list)
     return new_tags
-
 
 class DataSet_ConceptManager:
 
